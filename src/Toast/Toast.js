@@ -1,0 +1,23 @@
+import React, { useEffect, useRef } from 'react';
+
+function Toast({ children, remove }) {
+  const removeRef = useRef();
+  removeRef.current = remove;
+  useEffect(() => {
+    const duration = 5000;
+    setTimeout(() => removeRef.current(), duration);
+  }, []);
+
+  return (
+    <div className="toast">
+      <div className="toast__text">
+        {children}
+      </div>
+      <div>
+        <button onClick={remove} className="toast__close-btn">x</button>
+      </div>
+    </div>
+  );
+}
+
+export default Toast;
