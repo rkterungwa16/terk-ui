@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import { createPortal } from "react-dom";
 import Toast from './Toast';
-import './App.css';
+import "./toast.css";
 
 export const ToastContext = createContext(null);
 

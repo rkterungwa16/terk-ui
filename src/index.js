@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { ToastContainer, Child } from './Toast/ToastContainer';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ToastContainer isOpen={true} message="This is the new message">
+      <Child />
+    </ToastContainer>
   </React.StrictMode>,
   document.getElementById('root')
 );
