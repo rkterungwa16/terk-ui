@@ -1,9 +1,7 @@
-import { useContext } from 'react';
-import ToastContext from './context';
+import { useContext } from "react";
 
 function useToast() {
-  const context = useContext(ToastContext);
-
+  const context = useContext(null);
   return { remove: context.remove };
 }
 
