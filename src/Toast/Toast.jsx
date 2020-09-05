@@ -1,25 +1,18 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import { ToastMessage } from "./ToastMessage";
 import { ToastMainContainer } from "./style";
-
-export const ToastContext = createContext(null);
+import { useToast } from "./hooks";
+import { ToastContext } from "./ToastContext";
 
 function generateUEID() {
   return Math.random().toString(36).substring(2, 15);
 }
 
-export function useToast() {
-  const context = useContext(ToastContext);
-
-  return { add: context.add };
-}
-
 export function Child() {
   const toast = useToast();
   const showToast = () => toast.add("Toast created from child component!");
-
   return (
     <>
       <h3>Hello from child component!</h3>
@@ -30,18 +23,24 @@ export function Child() {
 
 export const MultiToast = ({ children }) => {
   const [toasts, setToasts] = useState([]);
-  const add = (content) => {
-    const id = generateUEID();
+  const add = useCallback(
+    (content) => {
+      const id = generateUEID();
 
-    setToasts([...toasts, { id, content }]);
-  };
+      setToasts([...toasts, { id, content }]);
+    },
+    [toasts]
+  );
 
-  const remove = (id) => {
-    const currentToasts = toasts.filter((t) => {
-      return t.id !== id;
-    });
-    setToasts(currentToasts);
-  };
+  const remove = useCallback(
+    (id) => {
+      const currentToasts = toasts.filter((t) => {
+        return t.id !== id;
+      });
+      setToasts(currentToasts);
+    },
+    [toasts]
+  );
 
   return (
     <ToastContext.Provider value={{ add }}>

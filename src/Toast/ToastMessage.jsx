@@ -10,7 +10,8 @@ export const ToastMessage = ({ children, remove }) => {
   removeRef.current = remove;
   useEffect(() => {
     const duration = 5000;
-    setTimeout(() => removeRef.current(), duration);
+    const id = setTimeout(() => removeRef.current(), duration);
+    return () => clearTimeout(id);
   }, []);
 
   return (
