@@ -15,8 +15,8 @@ export function Child() {
   const showToast = () => toast.add("Toast created from child component!");
   return (
     <>
-      <h3>Hello from child component!</h3>
-      <button onClick={showToast}>Show me a toast</button>
+      <h3>Toast</h3>
+      <button onClick={showToast}>Show toast</button>
     </>
   );
 }
@@ -70,7 +70,7 @@ export const Toast = (props) => {
 
   const remove = () => {
     setToastOpen(false);
-    props.handleRemove();
+    props.onClose();
   };
 
   return (
@@ -94,5 +94,10 @@ export const Toast = (props) => {
 Toast.propTypes = {
   isOpen: PropTypes.bool,
   message: PropTypes.string,
-  handleRemove: PropTypes.func,
+  onClose: PropTypes.func,
+  variant: PropTypes.oneOf(["error", "success", "default"]),
+};
+
+Toast.defaultProps = {
+  variant: "default",
 };

@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+import { IoIosClose } from "react-icons/io";
 import {
   ToastMessageTextContainer,
   ToastMessageContainer,
@@ -17,7 +19,15 @@ export const ToastMessage = ({ children, remove }) => {
   return (
     <ToastMessageContainer>
       <ToastMessageTextContainer>{children}</ToastMessageTextContainer>
-      <ToastMessageCloseButton onClick={remove}>x</ToastMessageCloseButton>
+      <ToastMessageCloseButton onClick={remove}>
+        <IoIosClose size={24} />
+      </ToastMessageCloseButton>
     </ToastMessageContainer>
   );
+};
+
+ToastMessage.propTypes = {
+  children: PropTypes.node,
+  remove: PropTypes.func,
+  duration: PropTypes.number,
 };
