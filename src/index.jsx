@@ -3,12 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import { MultiToast, Child } from "./Toast/Toast";
 import { Example } from "./Transition/Slide";
+import { ExampleGrid } from "./Grid/Example";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
     <MultiToast>
-      <Example />
+      <ExampleGrid />
     </MultiToast>
   </React.StrictMode>,
   document.getElementById("root")
