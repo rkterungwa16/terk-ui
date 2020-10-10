@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Row, Col } from "./Grid";
+import Col from "./Col";
+import Row from "./Row";
 const Header = styled.div`
   background-color: #9933cc;
   color: #ffffff;
