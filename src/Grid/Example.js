@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import Col from "./Col";
 import Row from "./Row";
+import ListGroup from "../Lists/ListGroup";
+import ListItem from "../Lists/ListItem";
+import Footer from "../Footer/Footer";
 const Header = styled.div`
   background-color: #9933cc;
   color: #ffffff;
@@ -34,14 +37,6 @@ const Aside = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 `;
 
-const Footer = styled.div`
-  background-color: #0099cc;
-  color: #ffffff;
-  text-align: center;
-  font-size: 12px;
-  padding: 15px;
-`;
-
 export const ExampleGrid = () => (
   <>
     <Header>
@@ -49,12 +44,12 @@ export const ExampleGrid = () => (
     </Header>
     <Row>
       <Col md="11" xs="11" lg="4">
-        <Menu>
-          <MenuItem>The Flight</MenuItem>
-          <MenuItem>The City</MenuItem>
-          <MenuItem>The Island</MenuItem>
-          <MenuItem>The Food</MenuItem>
-        </Menu>
+        <ListGroup>
+          <ListItem>The Flight</ListItem>
+          <ListItem>The City</ListItem>
+          <ListItem>The Island</ListItem>
+          <ListItem>The Food</ListItem>
+        </ListGroup>
       </Col>
 
       <Col md="11" xs="9" lg="4">
