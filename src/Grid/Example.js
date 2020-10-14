@@ -8,6 +8,8 @@ import Footer from "../Footer/Footer";
 import Switch from "../Switch/Switch";
 import SegmentControl from "../SegmentControl/SegmentControl";
 import Button from "../Button/Button";
+import Input from "../Form/Input";
+import TextArea from "../Form/TextArea";
 const Header = styled.div`
   background-color: #9933cc;
   color: #ffffff;
@@ -117,6 +119,12 @@ export const ExampleGrid = () => {
       </Row>
       <Row className="mt-small mb-small ml-small">
         <Button text="Submit" color="danger" />
+      </Row>
+      <Row className="mt-small mb-small ml-small">
+        <Input />
+      </Row>
+      <Row className="mt-small mb-small ml-small">
+        <TextArea />
       </Row>
       <Footer>
         <p>
