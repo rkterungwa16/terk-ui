@@ -12,8 +12,8 @@ const StyledRow = styled.div.attrs((props) => ({
   }
 `;
 const Row = (props) => {
-  const { className } = props;
-  return <StyledRow className={className}>{props.children}</StyledRow>;
+  const { className, children } = props;
+  return <StyledRow className={className}>{children}</StyledRow>;
 };
 
 Row.defaultProps = {

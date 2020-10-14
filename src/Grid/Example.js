@@ -6,6 +6,7 @@ import ListGroup from "../Lists/ListGroup";
 import ListItem from "../Lists/ListItem";
 import Footer from "../Footer/Footer";
 import Switch from "../Switch/Switch";
+import SegmentControl from "../SegmentControl/SegmentControl";
 const Header = styled.div`
   background-color: #9933cc;
   color: #ffffff;
@@ -39,14 +40,20 @@ const Aside = styled.div`
 `;
 
 export const ExampleGrid = () => {
+  const segments = ["Metro", "Bus", "Train", "Scooter"];
   const [isChecked, setCheck] = React.useState(false);
+  const [option, setOption] = React.useState("metro");
   const handleChange = React.useCallback(
     (event) => {
       const target = event.currentTarget;
       const value = target.type === "checkbox" ? target.checked : target.value;
-      // const name = target.name;
-
-      setCheck(value);
+      const name = target.name;
+      if (name === "switch-check") {
+        setCheck(value);
+      }
+      if (segments.map((option) => option.toLowerCase()).includes(name)) {
+        setOption(value);
+      }
     },
     [isChecked]
   );
@@ -84,11 +91,19 @@ export const ExampleGrid = () => {
           </Aside>
         </Col>
       </Row>
-      <Row>
+      <Row className="mt-small mb-small">
         <Switch
           handleChange={handleChange}
           checked={isChecked}
           name="switch-check"
+        />
+      </Row>
+      <Row className="mt-small mb-small">
+        <SegmentControl
+          handleChange={handleChange}
+          names={segments}
+          checked={false}
+          selected={option}
         />
       </Row>
       <Footer>

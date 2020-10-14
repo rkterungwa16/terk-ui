@@ -5,6 +5,7 @@ import "./index.css";
 // import { Example } from "./Transition/Slide";
 import { ExampleGrid } from "./Grid/Example";
 import * as serviceWorker from "./serviceWorker";
+import "./App.css";
 
 ReactDOM.render(
   <React.StrictMode>
