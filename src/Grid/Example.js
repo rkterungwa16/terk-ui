@@ -7,6 +7,7 @@ import ListItem from "../Lists/ListItem";
 import Footer from "../Footer/Footer";
 import Switch from "../Switch/Switch";
 import SegmentControl from "../SegmentControl/SegmentControl";
+import Button from "../Button/Button";
 const Header = styled.div`
   background-color: #9933cc;
   color: #ffffff;
@@ -91,20 +92,31 @@ export const ExampleGrid = () => {
           </Aside>
         </Col>
       </Row>
-      <Row className="mt-small mb-small">
+      <Row className="mt-small mb-small ml-small">
         <Switch
           handleChange={handleChange}
           checked={isChecked}
           name="switch-check"
         />
       </Row>
-      <Row className="mt-small mb-small">
+      <Row className="mt-small mb-small ml-small">
         <SegmentControl
           handleChange={handleChange}
           names={segments}
           checked={false}
           selected={option}
         />
+      </Row>
+
+      <Row className="mt-small mb-small ml-small">
+        <Button text="Submit" />
+      </Row>
+
+      <Row className="mt-small mb-small ml-small">
+        <Button text="Submit" variant="outline" />
+      </Row>
+      <Row className="mt-small mb-small ml-small">
+        <Button text="Submit" color="danger" />
       </Row>
       <Footer>
         <p>

@@ -36,6 +36,10 @@
   margin-bottom: 20px;
 }
 
+.ml-small {
+  margin-left: 20px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
