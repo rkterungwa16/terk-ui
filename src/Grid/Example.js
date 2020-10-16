@@ -10,6 +10,8 @@ import SegmentControl from "../SegmentControl/SegmentControl";
 import Button from "../Button/Button";
 import Input from "../Form/Input";
 import TextArea from "../Form/TextArea";
+import Checkbox from "../Form/Checkbox";
+
 const Header = styled.div`
   background-color: #9933cc;
   color: #ffffff;
@@ -125,6 +127,9 @@ export const ExampleGrid = () => {
       </Row>
       <Row className="mt-small mb-small ml-small">
         <TextArea />
+      </Row>
+      <Row className="mt-small mb-small ml-small">
+        <Checkbox />
       </Row>
       <Footer>
         <p>

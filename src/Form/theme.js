@@ -13,7 +13,8 @@ export const inputTheme = {
       backgroundColor: "#EFEFF0",
     },
     checkbox: {
-      color: "#000000",
+      color: "#200E32",
+      backgroundColor: "#ffffff",
     },
     radio: {
       color: "#000000",
