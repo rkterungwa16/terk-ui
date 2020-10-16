@@ -5,16 +5,23 @@ import { inputTheme } from "./theme";
 
 const StyledInput = styled.input.attrs((props) => ({
   className: props.className,
+  themeMode: props.themeMode,
 }))`
   height: 30px;
   border-radius: 5px;
   color: ${(props) => props.theme.input.normal.color};
-  background-color: ${(props) => props.theme.input.normal.backgroundColor};
-  border: 1px solid ${(props) => props.theme.input.normal.backgroundColor};
+  background-color: ${(props) =>
+    props.theme.input[props.themeMode].normal.backgroundColor};
+  border: 1px solid
+    ${(props) => props.theme.input[props.themeMode].normal.backgroundColor};
 `;
 
+StyledInput.propTypes = {
+  themeMode: PropTypes.string,
+};
 StyledInput.defaultProps = {
   theme: inputTheme,
+  themeMode: "light",
 };
 
 const Input = (props) => {

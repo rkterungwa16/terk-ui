@@ -5,16 +5,23 @@ import { inputTheme } from "./theme";
 
 const StyledTextArea = styled.textarea.attrs((props) => ({
   className: props.className,
+  themeMode: props.themeMode,
 }))`
   height: 71px;
   border-radius: 5px;
   color: ${(props) => props.theme.input.textarea.color};
-  background-color: ${(props) => props.theme.input.textarea.backgroundColor};
-  border: 1px solid ${(props) => props.theme.input.textarea.backgroundColor};
+  background-color: ${(props) =>
+    props.theme.input[props.themeMode].textarea.backgroundColor};
+  border: 1px solid
+    ${(props) => props.theme.input[props.themeMode].textarea.backgroundColor};
 `;
 
+StyledTextArea.propTypes = {
+  themeMode: PropTypes.string,
+};
 StyledTextArea.defaultProps = {
   theme: inputTheme,
+  themeMode: "light",
 };
 
 const TextArea = (props) => {
