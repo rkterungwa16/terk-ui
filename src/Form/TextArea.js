@@ -9,7 +9,7 @@ const StyledTextArea = styled.textarea.attrs((props) => ({
 }))`
   height: 71px;
   border-radius: 5px;
-  color: ${(props) => props.theme.input.textarea.color};
+  color: ${(props) => props.theme.input[props.themeMode].textarea.color};
   background-color: ${(props) =>
     props.theme.input[props.themeMode].textarea.backgroundColor};
   border: 1px solid

@@ -9,7 +9,7 @@ const StyledInput = styled.input.attrs((props) => ({
 }))`
   height: 30px;
   border-radius: 5px;
-  color: ${(props) => props.theme.input.normal.color};
+  color: ${(props) => props.theme.input[props.themeMode].normal.color};
   background-color: ${(props) =>
     props.theme.input[props.themeMode].normal.backgroundColor};
   border: 1px solid

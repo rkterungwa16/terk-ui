@@ -17,7 +17,6 @@ const CheckboxMark = styled.span`
   left: 0;
   width: 18.5px;
   height: 17.73px;
-  background-color: ${(props) => props.theme.input.checkbox.backgroundColor};
 
   ::before {
     position: absolute;
@@ -50,17 +49,25 @@ CheckboxMark.defaultProps = {
 
 const StyledCheckbox = styled.input.attrs((props) => ({
   className: props.className,
+  themeMode: props.themeMode,
 }))`
   width: 18.5px;
   height: 17.73px;
   border-radius: 5px;
-  color: ${(props) => props.theme.input.checkbox.color};
-  background-color: ${(props) => props.theme.input.checkbox.backgroundColor};
-  border: 1.5px solid ${(props) => props.theme.input.checkbox.color};
+  color: ${(props) => props.theme.input[props.themeMode].checkbox.color};
+  background-color: ${(props) =>
+    props.theme.input[props.themeMode].checkbox.backgroundColor};
+  border: 1.5px solid
+    ${(props) => props.theme.input[props.themeMode].checkbox.color};
 `;
 
 StyledCheckbox.defaultProps = {
   theme: inputTheme,
+  themeMode: "light",
+};
+
+StyledCheckbox.propTypes = {
+  themeMode: PropTypes.string,
 };
 
 const Checkbox = (props) => {

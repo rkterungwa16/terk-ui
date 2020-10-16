@@ -5,6 +5,7 @@ import { footerTheme } from "./theme";
 
 const StyledFooter = styled.div.attrs((props) => ({
   className: props.className,
+  themeMode: props.themeMode,
 }))`
   display: flex;
   flex: 0 0 50px;
@@ -13,28 +14,31 @@ const StyledFooter = styled.div.attrs((props) => ({
   justify-content: center;
   font-size: 12px;
   padding: 15px;
-  color: ${(props) => props.theme.footer.color};
-  background-color: ${(props) => props.theme.footer.backgroundColor};
+  color: ${(props) => props.theme.footer[props.themeMode].color};
+  background-color: ${(props) =>
+    props.theme.footer[props.themeMode].backgroundColor};
 `;
 
+StyledFooter.propTypes = {
+  themeMode: PropTypes.string,
+};
+
+StyledFooter.defaultProps = {
+  themeMode: "light",
+  theme: footerTheme,
+};
 const Footer = (props) => {
-  const { className, theme } = props;
-  return (
-    <StyledFooter theme={theme} className={className}>
-      {props.children}
-    </StyledFooter>
-  );
+  const { className } = props;
+  return <StyledFooter className={className}>{props.children}</StyledFooter>;
 };
 
 Footer.defaultProps = {
   className: "",
-  theme: footerTheme,
 };
 
 Footer.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  theme: PropTypes.object,
 };
 
 export default Footer;

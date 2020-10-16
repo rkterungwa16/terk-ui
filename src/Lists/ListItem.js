@@ -5,35 +5,40 @@ import { listTheme } from "./theme";
 
 const StyledListItem = styled.li.attrs((props) => ({
   className: props.className,
+  themeMode: props.themeMode,
 }))`
   padding: 8px;
   color: ${(props) => props.theme.listItem.color};
-  border: 1px solid ${(props) => props.theme.listItem.borderColor};
-  background-color: ${(props) => props.theme.listItem.backgroundColor};
+  border: 1px solid
+    ${(props) => props.theme.listItem[props.themeMode].borderColor};
+  background-color: ${(props) =>
+    props.theme.listItem[props.themeMode].backgroundColor};
   &:hover {
     background-color: ${(props) =>
-      props.theme.listItem["&:hover"].backgroundColor};
+      props.theme.listItem[props.themeMode]["&:hover"].backgroundColor};
   }
 `;
 
-const ListItem = (props) => {
-  const { className, theme } = props;
-  return (
-    <StyledListItem theme={theme} className={className}>
-      {props.children}
-    </StyledListItem>
-  );
+StyledListItem.propTypes = {
+  themeMode: PropTypes.string,
+  className: PropTypes.className,
 };
 
-ListItem.defaultProps = {
-  className: "",
+StyledListItem.defaultProps = {
+  themeMode: "light",
   theme: listTheme,
+};
+
+const ListItem = (props) => {
+  const { className } = props;
+  return (
+    <StyledListItem className={className}>{props.children}</StyledListItem>
+  );
 };
 
 ListItem.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  theme: PropTypes.object,
 };
 
 export default ListItem;
