@@ -71,10 +71,14 @@ export const ExampleGrid = () => {
       <Row>
         <Col md="11" xs="11" lg="4">
           <ListGroup>
-            <ListItem>The Flight</ListItem>
-            <ListItem>The City</ListItem>
-            <ListItem>The Island</ListItem>
-            <ListItem>The Food</ListItem>
+            <ListItem divider accent="#f9b115">
+              The Flight
+            </ListItem>
+            <ListItem divider accent="#39f">
+              The City
+            </ListItem>
+            <ListItem divider>The Island</ListItem>
+            <ListItem divider>The Food</ListItem>
           </ListGroup>
         </Col>
 

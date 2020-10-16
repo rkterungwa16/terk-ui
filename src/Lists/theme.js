@@ -1,12 +1,24 @@
 export const listTheme = {
   listItem: {
     light: {
-      color: "#ffffff",
-      backgroundColor: "#06c3e1",
+      color: "#4f5d73",
+      backgroundColor: "#ffffff",
       "&:hover": {
-        backgroundColor: "#01bedc",
+        backgroundColor: "#ffffff",
       },
-      borderColor: "#ffffff",
+      "::before": {
+        backgroundColor: "rgba(0,0,21,.125)",
+      },
+    },
+    dark: {
+      color: "#ced2d8",
+      backgroundColor: "#2c2c34",
+      "&:hover": {
+        backgroundColor: "#2c2c34",
+      },
+      "::before": {
+        backgroundColor: "#181924",
+      },
     },
   },
 };
