@@ -3,13 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 // import { MultiToast, Child } from "./Toast/Toast";
 // import { Example } from "./Transition/Slide";
-import { ExampleGrid } from "./Grid/Example";
+import { ExampleGrid } from "./Examples/Grid";
+import SidebarExample from "./Examples/Sidebar";
 import * as serviceWorker from "./serviceWorker";
 import "./App.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ExampleGrid />
+    <SidebarExample />
   </React.StrictMode>,
   document.getElementById("root")
 );
