@@ -2,6 +2,7 @@ import React from "react";
 import { Transition } from "react-transition-group";
 import PropTypes from "prop-types";
 import { sidebarTheme } from "./theme";
+import { useClickOutside } from "../hooks/clickOutside";
 
 const Sidebar = (props) => {
   const defaultStyle = {
@@ -26,15 +27,20 @@ const Sidebar = (props) => {
     exiting: { opacity: 1 },
     exited: { opacity: 1 },
   };
+
+  const sidebarRef = React.useRef(null);
+  useClickOutside(sidebarRef, props.handleClose);
   return (
-    <Transition in={props.isOpen} timeout={props.timeout}>
+    <Transition in={props.isClose} timeout={props.timeout}>
       {(state) => {
         return (
           <div
+            ref={sidebarRef}
             style={{
               ...defaultStyle,
               ...transitionStyles[state],
             }}
+            className={props.className}
           >
             {props.children}
           </div>
@@ -45,15 +51,17 @@ const Sidebar = (props) => {
 };
 
 Sidebar.propTypes = {
-  isOpen: PropTypes.bool,
+  isClose: PropTypes.bool,
   timeout: PropTypes.number,
   theme: PropTypes.object,
   themeMode: PropTypes.string,
   width: PropTypes.number,
+  className: PropTypes.string,
+  handleClose: PropTypes.func,
 };
 
 Sidebar.defaultProps = {
-  isOpen: false,
+  isClose: false,
   timeout: 150,
   theme: sidebarTheme,
   width: 256,

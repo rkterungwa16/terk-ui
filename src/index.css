@@ -22,6 +22,9 @@ code {
     monospace;
 }
 
+.remove-scroll::-webkit-scrollbar {
+  display: none;
+}
 :root {
   --primary-legacy-theme: #321fdb;
   --secondary-legacy-theme: #ced2d8;
