@@ -5,6 +5,7 @@ import { sidebarTheme } from "./theme";
 import { useClickOutside } from "../hooks/clickOutside";
 
 const Sidebar = (props) => {
+  const [isClose, setClose] = React.useState(props.isClose);
   const defaultStyle = {
     position: "fixed",
     top: "0",
@@ -28,10 +29,16 @@ const Sidebar = (props) => {
     exited: { opacity: 1 },
   };
 
+  React.useEffect(() => {
+    if (props.isClose !== isClose) {
+      setClose(props.isClose);
+    }
+  }, [props.isClose]);
+
   const sidebarRef = React.useRef(null);
   useClickOutside(sidebarRef, props.handleClose);
   return (
-    <Transition in={props.isClose} timeout={props.timeout}>
+    <Transition in={isClose} timeout={props.timeout}>
       {(state) => {
         return (
           <div
