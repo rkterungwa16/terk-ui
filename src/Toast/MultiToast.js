@@ -21,7 +21,7 @@ export function Child() {
   );
 }
 
-export const MultiToast = ({ children }) => {
+const MultiToast = ({ children }) => {
   const [toasts, setToasts] = useState([]);
   const add = useCallback(
     (content) => {
@@ -59,45 +59,13 @@ export const MultiToast = ({ children }) => {
   );
 };
 
-export const Toast = (props) => {
-  const toastNode = useContext(ToastContext);
-  const [toastIsOpen, setToastOpen] = useState(false);
-  useEffect(() => {
-    if (toastIsOpen !== props.isOpen) {
-      setToastOpen(props.isOpen);
-    }
-  }, [props.isOpen, toastIsOpen]);
-
-  const remove = () => {
-    setToastOpen(false);
-    props.onClose();
-  };
-
-  return (
-    <>
-      {toastNode
-        ? createPortal(
-            <ToastMainContainer>
-              {toastIsOpen && (
-                <ToastMessage remove={() => remove()}>
-                  {props.message}
-                </ToastMessage>
-              )}
-            </ToastMainContainer>,
-            toastNode
-          )
-        : null}
-    </>
-  );
-};
-
-Toast.propTypes = {
-  isOpen: PropTypes.bool,
-  message: PropTypes.string,
-  onClose: PropTypes.func,
+MultiToast.propTypes = {
+  children: PropTypes.node,
   variant: PropTypes.oneOf(["error", "success", "default"]),
 };
 
-Toast.defaultProps = {
+MultiToast.defaultProps = {
   variant: "default",
 };
+
+export default MultiToast;

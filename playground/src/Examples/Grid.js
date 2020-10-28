@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import Col from "../Grid/Col";
-import Row from "../Grid/Row";
-import ListGroup from "../Lists/ListGroup";
-import ListItem from "../Lists/ListItem";
-import Footer from "../Footer/Footer";
-import Switch from "../Switch/Switch";
-import SegmentControl from "../SegmentControl/SegmentControl";
-import Button from "../Button/Button";
-import Input from "../Form/Input";
-import TextArea from "../Form/TextArea";
-import Checkbox from "../Form/Checkbox";
+import Col from "../../src/Grid/Col";
+import Row from "../../src/Grid/Row";
+import ListGroup from "../../src/Lists/ListGroup";
+import ListItem from "../../src/Lists/ListItem";
+import Footer from "../../src/Footer/Footer";
+import Switch from "../../src/Switch/Switch";
+import SegmentControl from "../../src/SegmentControl/SegmentControl";
+import Button from "../../src/Button/Button";
+import Input from "../../src/Form/Input";
+import TextArea from "../../src/Form/TextArea";
+import Checkbox from "../../src/Form/Checkbox";
 
 const Header = styled.div`
   background-color: #9933cc;

@@ -2,12 +2,12 @@ import React from "react";
 
 import Sidebar from "../Sidebar/Sidebar";
 import Scrollbar from "../Scrollbar/Scrollbar";
-
+import { Row } from "nabi_web_components";
 const SidebarExample = () => {
   const [isClose, setClose] = React.useState(false);
   return (
     <>
-      <div>
+      <Row>
         <button
           onClick={() => {
             setClose(!isClose);
@@ -16,7 +16,7 @@ const SidebarExample = () => {
         >
           open
         </button>
-      </div>
+      </Row>
       <Sidebar
         isClose={isClose}
         handleClose={() => {
