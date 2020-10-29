@@ -1,16 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import Col from "../../src/Grid/Col";
-import Row from "../../src/Grid/Row";
-import ListGroup from "../../src/Lists/ListGroup";
-import ListItem from "../../src/Lists/ListItem";
-import Footer from "../../src/Footer/Footer";
-import Switch from "../../src/Switch/Switch";
-import SegmentControl from "../../src/SegmentControl/SegmentControl";
-import Button from "../../src/Button/Button";
-import Input from "../../src/Form/Input";
-import TextArea from "../../src/Form/TextArea";
-import Checkbox from "../../src/Form/Checkbox";
+import {
+  Col,
+  Row,
+  Grid,
+  ListGroup,
+  ListItem,
+  Footer,
+  Switch,
+  SegmentControl,
+  Button,
+  Input,
+  TextArea,
+  Checkbox
+} from "terk-ui";
 
 const Header = styled.div`
   background-color: #9933cc;
@@ -68,8 +71,8 @@ export const ExampleGrid = () => {
       <Header>
         <h1>Chania</h1>
       </Header>
-      <Row>
-        <Col md="11" xs="11" lg="4">
+      <Grid container={true}>
+        <Grid gutter={5} item={true} md={11} xs={11} lg={4}>
           <ListGroup>
             <ListItem divider accent="#f9b115">
               The Flight
@@ -80,17 +83,17 @@ export const ExampleGrid = () => {
             <ListItem divider>The Island</ListItem>
             <ListItem divider>The Food</ListItem>
           </ListGroup>
-        </Col>
+        </Grid>
 
-        <Col md="11" xs="9" lg="4">
+        <Grid gutter={5} item={true} md={11} xs={11} lg={4}>
           <h1>The City</h1>
           <p>
             Chania is the capital of the Chania region on the island of Crete.
             The city can be divided in two parts, the old town and the modern
             city.
           </p>
-        </Col>
-        <Col md="11" xs="12" lg="4">
+        </Grid>
+        <Grid flex={true} justify="center" gutter={5} item={true} md={11} xs={11} lg={4}>
           <Aside>
             <p>Chania is a city on the island of Crete.</p>
             <h2>Where?</h2>
@@ -98,9 +101,9 @@ export const ExampleGrid = () => {
             <h2>How?</h2>
             <p>You can reach Chania airport from all over Europe.</p>
           </Aside>
-        </Col>
-      </Row>
-      <Row className="mt-small mb-small ml-small">
+        </Grid>
+      </Grid>
+      {/* <Row className="mt-small mb-small ml-small">
         <Switch
           handleChange={handleChange}
           checked={isChecked}
@@ -134,7 +137,7 @@ export const ExampleGrid = () => {
       </Row>
       <Row className="mt-small mb-small ml-small">
         <Checkbox />
-      </Row>
+      </Row> */}
       <Footer>
         <p>
           Resize the browser window to see how the content respond to the

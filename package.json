@@ -24,7 +24,7 @@
     "start-playground": "cd playground && npm run start",
     "install-all": "yarn && cd playground && yarn",
     "dev": "npm-run-all --parallel build-watch start-playground",
-    "dev:publish": "yarn build && yalc publish --private && cd playground && yalc add nabi_web_components",
+    "dev:publish": "yarn build && yalc publish --private && cd playground && yalc add terk-ui",
     "format": "prettier --write \"src/**/*.js\""
   },
   "eslintConfig": {
