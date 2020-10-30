@@ -71,7 +71,7 @@ export const ExampleGrid = () => {
       <Header>
         <h1>Chania</h1>
       </Header>
-      <Grid container={true}>
+      {/* <Grid container={true}>
         <Grid gutter={5} item={true} md={11} xs={11} lg={4}>
           <ListGroup>
             <ListItem divider accent="#f9b115">
@@ -102,7 +102,7 @@ export const ExampleGrid = () => {
             <p>You can reach Chania airport from all over Europe.</p>
           </Aside>
         </Grid>
-      </Grid>
+      </Grid> */}
       {/* <Row className="mt-small mb-small ml-small">
         <Switch
           handleChange={handleChange}
@@ -120,10 +120,6 @@ export const ExampleGrid = () => {
       </Row>
 
       <Row className="mt-small mb-small ml-small">
-        <Button text="Submit" />
-      </Row>
-
-      <Row className="mt-small mb-small ml-small">
         <Button text="Submit" variant="outline" />
       </Row>
       <Row className="mt-small mb-small ml-small">
@@ -138,6 +134,9 @@ export const ExampleGrid = () => {
       <Row className="mt-small mb-small ml-small">
         <Checkbox />
       </Row> */}
+      <Button fullWidth={true}>
+        Submit
+      </Button>
       <Footer>
         <p>
           Resize the browser window to see how the content respond to the
