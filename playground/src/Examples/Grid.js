@@ -12,7 +12,8 @@ import {
   Button,
   Input,
   TextArea,
-  Checkbox
+  Checkbox,
+  Alarm
 } from "terk-ui";
 
 const Header = styled.div`
@@ -137,6 +138,7 @@ export const ExampleGrid = () => {
       <Button fullWidth={true}>
         Submit
       </Button>
+      <Alarm />
       <Footer>
         <p>
           Resize the browser window to see how the content respond to the
