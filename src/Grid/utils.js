@@ -18,21 +18,44 @@ export function generateGridWidth(size) {
  *
  * @returns {String} media queries
  */
-export function generateMediaQueries({ xs = 12, sm, md, lg = 12 }) {
+export function generateMediaQueries({ xs, sm, md, lg }) {
   return `
-    ${xs ? generateGridWidth(xs) : "max-width: 100%"};
-    flex-basis: ${(Number(xs) / 12) * 100 - 1}%;
-    @media only screen and (min-width: 768px) {
-      ${generateGridWidth(sm)}
-      flex-basis: ${(Number(sm) / 12) * 100 - 1}%;
+    ${
+      xs
+        ? `
+        ${generateGridWidth(xs)}
+        flex-basis: ${(Number(xs) / 12) * 100}%;
+        box-sizing: border-box;
+      `
+        : ""
     }
-    @media only screen and (min-width: 992px) {
-      ${generateGridWidth(md)}
-      flex-basis: ${(Number(md) / 12) * 100 - 1}%;
+    ${
+      sm
+        ? `@media only screen and (min-width: 768px) {
+        ${generateGridWidth(sm)}
+        flex-basis: ${(Number(sm) / 12) * 100}%;
+        box-sizing: border-box;
+      }`
+        : ""
     }
-    @media only screen and (min-width: 1200px) {
-      ${generateGridWidth(lg)}
-      flex-basis: ${(Number(lg) / 12) * 100 - 1}%;
+    ${
+      md
+        ? `@media only screen and (min-width: 992px) {
+        ${generateGridWidth(md)}
+        flex-basis: ${(Number(md) / 12) * 100}%;
+        box-sizing: border-box;
+      }`
+        : ""
+    }
+    ${
+      lg
+        ? `@media only screen and (min-width: 1200px) {
+        ${generateGridWidth(lg)}
+        flex-basis: ${(Number(lg) / 12) * 100}%;
+        box-sizing: border-box;
+      }`
+        : ""
+    }
   `;
 }
 
@@ -60,7 +83,6 @@ export function generateFlexStyle({
     ${justify ? `justify-content: ${justify};` : ""}
     ${alignItems ? `align-items: ${alignItems};` : ""}
     ${alignContent ? `align-content: ${alignContent};` : ""}
-    flex-shrink: 1;
     flex-grow: 1;
   `;
 }

@@ -51,7 +51,7 @@ Grid.propTypes = {
   container: PropTypes.bool,
   children: PropTypes.node,
   flex: PropTypes.bool,
-  gutter: PropTypes.number,
+  spacing: PropTypes.number,
 };
 
 export default Grid;

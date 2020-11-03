@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+// import { Grid } from "@material-ui/core";
 import {
   Col,
   Row,
@@ -72,8 +73,8 @@ export const ExampleGrid = () => {
       <Header>
         <h1>Chania</h1>
       </Header>
-      {/* <Grid container={true}>
-        <Grid gutter={5} item={true} md={11} xs={11} lg={4}>
+      <Grid spacing={5} container={true}>
+        <Grid item={true} xs={12} md={4} lg={4}>
           <ListGroup>
             <ListItem divider accent="#f9b115">
               The Flight
@@ -86,7 +87,7 @@ export const ExampleGrid = () => {
           </ListGroup>
         </Grid>
 
-        <Grid gutter={5} item={true} md={11} xs={11} lg={4}>
+        <Grid item={true} xs={12} md={4} lg={4}>
           <h1>The City</h1>
           <p>
             Chania is the capital of the Chania region on the island of Crete.
@@ -94,7 +95,7 @@ export const ExampleGrid = () => {
             city.
           </p>
         </Grid>
-        <Grid flex={true} justify="center" gutter={5} item={true} md={11} xs={11} lg={4}>
+        <Grid item={true} md={4} lg={4}>
           <Aside>
             <p>Chania is a city on the island of Crete.</p>
             <h2>Where?</h2>
@@ -103,7 +104,7 @@ export const ExampleGrid = () => {
             <p>You can reach Chania airport from all over Europe.</p>
           </Aside>
         </Grid>
-      </Grid> */}
+      </Grid>
       {/* <Row className="mt-small mb-small ml-small">
         <Switch
           handleChange={handleChange}
@@ -135,10 +136,10 @@ export const ExampleGrid = () => {
       <Row className="mt-small mb-small ml-small">
         <Checkbox />
       </Row> */}
-      <Button fullWidth={true}>
+      {/* <Button fullWidth={true}>
         Submit
       </Button>
-      <Alarm />
+      <Alarm /> */}
       <Footer>
         <p>
           Resize the browser window to see how the content respond to the

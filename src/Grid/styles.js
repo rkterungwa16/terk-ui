@@ -22,34 +22,7 @@ StyledRow.propTypes = {
   className: PropTypes.string,
 };
 
-export const StyledCol = styled.div.attrs((props) => ({
-  className: props.className,
-  xs: props.xs,
-  sm: props.sm,
-  md: props.md,
-  lg: props.lg,
-}))`
-  float: left;
-  padding: 10px;
-  box-sizing: border-box;
-  ${({ xs }) => (xs ? generateGridWidth(xs) : "width: 100%")}
-  @media only screen and (min-width: 768px) {
-    ${({ sm }) => generateGridWidth(sm)}
-  }
-  @media only screen and (min-width: 992px) {
-    ${({ md }) => generateGridWidth(md)}
-  }
-  @media only screen and (min-width: 1200px) {
-    ${({ lg }) => generateGridWidth(lg)}
-  }
-`;
-
-StyledRow.propTypes = {
-  className: PropTypes.string,
-};
-
 export const StyledGrid = styled.div.attrs((props) => ({
-  className: props.className,
   xs: props.xs,
   sm: props.sm,
   md: props.md,
@@ -61,24 +34,42 @@ export const StyledGrid = styled.div.attrs((props) => ({
   alignContent: props.alignContent,
   alignItems: props.alignItems,
   flex: props.flex,
-  gutter: props.gutter,
+  spacing: props.spacing,
+  className: `${props.className ? props.className : ""} ${
+    props.container ? "container" : "item"
+  }`,
 }))`
   ${(props) => {
     if (props.container && !props.item) {
       return `
-        flex-wrap: wrap;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        box-sizing: border-box;
+        &.container {
+          flex-wrap: wrap;
+          display: flex;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        ${
+          props.spacing
+            ? `
+            &.container > &.item {
+              padding: ${props.spacing * 4}px
+            }
+            &.container {
+              width: calc(100% + ${props.spacing * 8}px);
+              margin: -${props.spacing * 4}px;
+            }
+            `
+            : ""
+        }
       `;
     }
 
     if (props.item && !props.container) {
       return `
-        ${generateMediaQueries(props)}
-        ${generateFlexStyle(props)}
-        ${props.gutter ? `margin: ${props.gutter}px` : ""};
+        &.item {
+          ${generateMediaQueries(props)}
+          ${generateFlexStyle(props)}
+        }
       `;
     }
   }}
