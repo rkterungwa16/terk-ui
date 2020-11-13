@@ -1,9 +1,19 @@
-import React, { createElement, useRef, useEffect, createContext, useContext, useState, memo } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Transition } from 'react-transition-group';
-import { createPortal } from 'react-dom';
-import { IoIosClose } from 'react-icons/io';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var React = require('react');
+var PropTypes = require('prop-types');
+var styled = require('styled-components');
+var reactTransitionGroup = require('react-transition-group');
+var reactDom = require('react-dom');
+var io = require('react-icons/io');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
+var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
@@ -167,7 +177,7 @@ function generateFlexStyle(_ref2) {
       alignItems = _ref2.alignItems,
       alignContent = _ref2.alignContent,
       flex = _ref2.flex;
-  return "\n    ".concat(flex ? "display: flex;" : "", "\n    ").concat(direction ? "flex-direction: ".concat(direction, ";") : "", "\n    ").concat(justify ? "justify-content: ".concat(justify, ";") : "", "\n    ").concat(alignItems ? "align-items: ".concat(alignItems, ";") : "", "\n    ").concat(alignContent ? "align-content: ".concat(alignContent, ";") : "", "\n    flex-grow: 1;\n    flex-basis: auto;\n  ");
+  return "\n    ".concat(flex ? "display: flex;" : "", "\n    ").concat(direction ? "flex-direction: ".concat(direction, ";") : "", "\n    ").concat(justify ? "justify-content: ".concat(justify, ";") : "", "\n    ").concat(alignItems ? "align-items: ".concat(alignItems, ";") : "", "\n    ").concat(alignContent ? "align-content: ".concat(alignContent, ";") : "", "\n    flex-grow: 1;\n  ");
 }
 
 function _templateObject3() {
@@ -181,7 +191,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  float: left;\n  padding: 10px;\n  box-sizing: border-box;\n  ", "\n  @media only screen and (min-width: 768px) {\n    ", "\n  }\n  @media only screen and (min-width: 992px) {\n    ", "\n  }\n  @media only screen and (min-width: 1200px) {\n    ", "\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  float: left;\n  padding: 10px;\n  ", "\n  @media only screen and (min-width: 768px) {\n    ", "\n  }\n  @media only screen and (min-width: 992px) {\n    ", "\n  }\n  @media only screen and (min-width: 1200px) {\n    ", "\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -199,15 +209,15 @@ function _templateObject() {
 
   return data;
 }
-var StyledRow = styled.div.attrs(function (props) {
+var StyledRow = styled__default['default'].div.attrs(function (props) {
   return {
     className: props.className
   };
 })(_templateObject());
 StyledRow.propTypes = {
-  className: PropTypes.string
+  className: PropTypes__default['default'].string
 };
-var StyledCol = styled.div.attrs(function (props) {
+var StyledCol = styled__default['default'].div.attrs(function (props) {
   return {
     className: props.className,
     xs: props.xs,
@@ -228,10 +238,7 @@ var StyledCol = styled.div.attrs(function (props) {
   var lg = _ref4.lg;
   return generateGridWidth(lg);
 });
-StyledRow.propTypes = {
-  className: PropTypes.string
-};
-var StyledGrid = styled.div.attrs(function (props) {
+var StyledGrid = styled__default['default'].div.attrs(function (props) {
   return {
     xs: props.xs,
     sm: props.sm,
@@ -249,7 +256,7 @@ var StyledGrid = styled.div.attrs(function (props) {
   };
 })(_templateObject3(), function (props) {
   if (props.container && !props.item) {
-    return "\n        &.container {\n          flex-wrap: wrap;\n          display: flex;\n          justify-content: center;\n          width: 100%;\n          box-sizing: border-box;\n        }\n        ".concat(props.spacing ? "\n            &.container > &.item {\n              padding: ".concat(props.spacing * 4, "px\n            }\n            &.container {\n              width: calc(100% + ").concat(props.spacing * 8, "px);\n              margin: -").concat(props.spacing * 4, "px;\n            }\n            ") : "", "\n      ");
+    return "\n        &.container {\n          flex-wrap: wrap;\n          display: flex;\n          width: 100%;\n          box-sizing: border-box;\n        }\n        ".concat(props.spacing ? "\n            &.container > &.item {\n              padding: ".concat(props.spacing * 4, "px\n            }\n            &.container {\n              width: calc(100% + ").concat(props.spacing * 8, "px);\n              margin: -").concat(props.spacing * 4, "px;\n            }\n            ") : "", "\n      ");
   }
 
   if (props.item && !props.container) {
@@ -260,7 +267,7 @@ var StyledGrid = styled.div.attrs(function (props) {
 var Row = function Row(props) {
   var className = props.className,
       children = props.children;
-  return /*#__PURE__*/createElement(StyledRow, {
+  return /*#__PURE__*/React.createElement(StyledRow, {
     className: className
   }, children);
 };
@@ -269,8 +276,8 @@ Row.defaultProps = {
   className: ""
 };
 Row.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node
+  className: PropTypes__default['default'].string,
+  children: PropTypes__default['default'].node
 };
 
 var Col = function Col(props) {
@@ -279,7 +286,7 @@ var Col = function Col(props) {
       sm = props.sm,
       md = props.md,
       lg = props.lg;
-  return /*#__PURE__*/React.createElement(StyledCol, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledCol, {
     className: className,
     xs: xs,
     sm: sm,
@@ -292,16 +299,16 @@ Col.defaultProps = {
   className: ""
 };
 Col.propTypes = {
-  className: PropTypes.string,
-  xs: PropTypes.string,
-  sm: PropTypes.string,
-  md: PropTypes.string,
-  lg: PropTypes.string,
-  children: PropTypes.node
+  className: PropTypes__default['default'].string,
+  xs: PropTypes__default['default'].string,
+  sm: PropTypes__default['default'].string,
+  md: PropTypes__default['default'].string,
+  lg: PropTypes__default['default'].string,
+  children: PropTypes__default['default'].node
 };
 
 var Grid = function Grid(props) {
-  return /*#__PURE__*/React.createElement(StyledGrid, props, props.children);
+  return /*#__PURE__*/React__default['default'].createElement(StyledGrid, props, props.children);
 };
 
 Grid.defaultProps = {
@@ -309,20 +316,20 @@ Grid.defaultProps = {
   container: false
 };
 Grid.propTypes = {
-  className: PropTypes.string,
-  xs: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
-  sm: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
-  md: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
-  lg: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
-  direction: PropTypes.oneOf(["row", "row-reverse", "column", "column-reverse"]),
-  justify: PropTypes.oneOf(["flex-start", "center", "flex-end", "space-between", "space-around", "space-evenly"]),
-  alignContent: PropTypes.oneOf(["stretch", "center", "flex-start", "flex-end", "space-between", "space-around"]),
-  alignItems: PropTypes.oneOf(["flex-start", "center", "flex-end", "stretch", "baseline"]),
-  item: PropTypes.bool,
-  container: PropTypes.bool,
-  children: PropTypes.node,
-  flex: PropTypes.bool,
-  spacing: PropTypes.number
+  className: PropTypes__default['default'].string,
+  xs: PropTypes__default['default'].oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  sm: PropTypes__default['default'].oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  md: PropTypes__default['default'].oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  lg: PropTypes__default['default'].oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  direction: PropTypes__default['default'].oneOf(["row", "row-reverse", "column", "column-reverse"]),
+  justify: PropTypes__default['default'].oneOf(["flex-start", "center", "flex-end", "space-between", "space-around", "space-evenly"]),
+  alignContent: PropTypes__default['default'].oneOf(["stretch", "center", "flex-start", "flex-end", "space-between", "space-around"]),
+  alignItems: PropTypes__default['default'].oneOf(["flex-start", "center", "flex-end", "stretch", "baseline"]),
+  item: PropTypes__default['default'].bool,
+  container: PropTypes__default['default'].bool,
+  children: PropTypes__default['default'].node,
+  flex: PropTypes__default['default'].bool,
+  spacing: PropTypes__default['default'].number
 };
 
 function _templateObject$1() {
@@ -334,7 +341,7 @@ function _templateObject$1() {
 
   return data;
 }
-var StyledListGroup = styled.ul.attrs(function (props) {
+var StyledListGroup = styled__default['default'].ul.attrs(function (props) {
   return {
     className: props.className
   };
@@ -342,7 +349,7 @@ var StyledListGroup = styled.ul.attrs(function (props) {
 
 var ListGroup = function ListGroup(props) {
   var className = props.className;
-  return /*#__PURE__*/React.createElement(StyledListGroup, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledListGroup, {
     className: className
   }, props.children);
 };
@@ -351,8 +358,8 @@ ListGroup.defaultProps = {
   className: ""
 };
 ListGroup.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node
+  className: PropTypes__default['default'].string,
+  children: PropTypes__default['default'].node
 };
 
 var listTheme = {
@@ -389,7 +396,7 @@ function _templateObject$2() {
 
   return data;
 }
-var StyledListItem = styled.li.attrs(function (props) {
+var StyledListItem = styled__default['default'].li.attrs(function (props) {
   return {
     className: props.className,
     themeMode: props.themeMode,
@@ -413,10 +420,10 @@ var StyledListItem = styled.li.attrs(function (props) {
   }
 });
 StyledListItem.propTypes = {
-  themeMode: PropTypes.string,
-  className: PropTypes.string,
-  divider: PropTypes.bool,
-  accent: PropTypes.string
+  themeMode: PropTypes__default['default'].string,
+  className: PropTypes__default['default'].string,
+  divider: PropTypes__default['default'].bool,
+  accent: PropTypes__default['default'].string
 };
 StyledListItem.defaultProps = {
   themeMode: "dark",
@@ -425,15 +432,15 @@ StyledListItem.defaultProps = {
 };
 
 var ListItem = function ListItem(props) {
-  return /*#__PURE__*/React.createElement(StyledListItem, props, props.children);
+  return /*#__PURE__*/React__default['default'].createElement(StyledListItem, props, props.children);
 };
 
 ListItem.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-  divider: PropTypes.bool,
-  accent: PropTypes.string,
-  themeMode: PropTypes.string
+  className: PropTypes__default['default'].string,
+  children: PropTypes__default['default'].node,
+  divider: PropTypes__default['default'].bool,
+  accent: PropTypes__default['default'].string,
+  themeMode: PropTypes__default['default'].string
 };
 
 var footerTheme = {
@@ -454,7 +461,7 @@ function _templateObject$3() {
 
   return data;
 }
-var StyledFooter = styled.div.attrs(function (props) {
+var StyledFooter = styled__default['default'].div.attrs(function (props) {
   return {
     className: props.className,
     themeMode: props.themeMode
@@ -465,7 +472,7 @@ var StyledFooter = styled.div.attrs(function (props) {
   return props.theme.footer[props.themeMode].backgroundColor;
 });
 StyledFooter.propTypes = {
-  themeMode: PropTypes.string
+  themeMode: PropTypes__default['default'].string
 };
 StyledFooter.defaultProps = {
   themeMode: "light",
@@ -474,7 +481,7 @@ StyledFooter.defaultProps = {
 
 var Footer = function Footer(props) {
   var className = props.className;
-  return /*#__PURE__*/React.createElement(StyledFooter, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledFooter, {
     className: className
   }, props.children);
 };
@@ -483,8 +490,8 @@ Footer.defaultProps = {
   className: ""
 };
 Footer.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node
+  className: PropTypes__default['default'].string,
+  children: PropTypes__default['default'].node
 };
 
 function _templateObject$4() {
@@ -496,7 +503,7 @@ function _templateObject$4() {
 
   return data;
 }
-var StyledButton = styled.button.attrs(function (props) {
+var StyledButton = styled__default['default'].button.attrs(function (props) {
   return {
     className: props.className,
     variant: props.variant,
@@ -548,28 +555,28 @@ var buttonTheme = {
 };
 
 var Button = function Button(props) {
-  return /*#__PURE__*/React.createElement(StyledButton, props, props.children);
+  return /*#__PURE__*/React__default['default'].createElement(StyledButton, props, props.children);
 };
 
 Button.propTypes = {
-  variant: PropTypes.oneOf(["contained", "outline"]),
-  color: PropTypes.oneOf(["primary", "secondary", "danger"]),
-  fullWidth: PropTypes.bool,
-  borderRadius: PropTypes.number,
-  onClick: PropTypes.func,
-  onDragLeave: PropTypes.func,
-  onFocus: PropTypes.func,
-  onFocusVisible: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onKeyUp: PropTypes.func,
-  onMouseDown: PropTypes.func,
-  onMouseLeave: PropTypes.func,
-  onMouseUp: PropTypes.func,
-  onTouchEnd: PropTypes.func,
-  onTouchMove: PropTypes.func,
-  onTouchStart: PropTypes.func,
-  disabled: PropTypes.bool,
-  children: PropTypes.node
+  variant: PropTypes__default['default'].oneOf(["contained", "outline"]),
+  color: PropTypes__default['default'].oneOf(["primary", "secondary", "danger"]),
+  fullWidth: PropTypes__default['default'].bool,
+  borderRadius: PropTypes__default['default'].number,
+  onClick: PropTypes__default['default'].func,
+  onDragLeave: PropTypes__default['default'].func,
+  onFocus: PropTypes__default['default'].func,
+  onFocusVisible: PropTypes__default['default'].func,
+  onKeyDown: PropTypes__default['default'].func,
+  onKeyUp: PropTypes__default['default'].func,
+  onMouseDown: PropTypes__default['default'].func,
+  onMouseLeave: PropTypes__default['default'].func,
+  onMouseUp: PropTypes__default['default'].func,
+  onTouchEnd: PropTypes__default['default'].func,
+  onTouchMove: PropTypes__default['default'].func,
+  onTouchStart: PropTypes__default['default'].func,
+  disabled: PropTypes__default['default'].bool,
+  children: PropTypes__default['default'].node
 };
 Button.defaultProps = {
   variant: "contained",
@@ -600,7 +607,7 @@ function _templateObject$5() {
 
   return data;
 }
-var Container = styled.div.attrs(function (props) {
+var Container = styled__default['default'].div.attrs(function (props) {
   return {
     width: props.width
   };
@@ -612,8 +619,8 @@ var Container = styled.div.attrs(function (props) {
   return props.width;
 });
 Container.propTypes = {
-  width: PropTypes.number,
-  number: PropTypes.number
+  width: PropTypes__default['default'].number,
+  number: PropTypes__default['default'].number
 };
 Container.defaultProps = {
   width: 400,
@@ -651,11 +658,11 @@ var Selection = function Selection(props) {
       opacity: 1
     }
   };
-  return /*#__PURE__*/React.createElement(Transition, {
+  return /*#__PURE__*/React__default['default'].createElement(reactTransitionGroup.Transition, {
     in: Boolean(props.selected),
     timeout: props.duration
   }, function (state) {
-    return /*#__PURE__*/React.createElement("span", {
+    return /*#__PURE__*/React__default['default'].createElement("span", {
       style: _objectSpread2(_objectSpread2(_objectSpread2({}, defaultStyle), transitionStyles[state]), {}, {
         width: "".concat(props.width / props.number, "px")
       })
@@ -664,12 +671,12 @@ var Selection = function Selection(props) {
 };
 
 Selection.propTypes = {
-  in: PropTypes.bool,
-  timeout: PropTypes.number,
-  color: PropTypes.string,
-  width: PropTypes.number,
-  number: PropTypes.number,
-  selected: PropTypes.number
+  in: PropTypes__default['default'].bool,
+  timeout: PropTypes__default['default'].number,
+  color: PropTypes__default['default'].string,
+  width: PropTypes__default['default'].number,
+  number: PropTypes__default['default'].number,
+  selected: PropTypes__default['default'].number
 };
 Selection.defaultProps = {
   in: false,
@@ -688,7 +695,7 @@ function _templateObject$6() {
 
   return data;
 }
-var Option = styled.div(_templateObject$6());
+var Option = styled__default['default'].div(_templateObject$6());
 
 function _templateObject$7() {
   var data = _taggedTemplateLiteral(["\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  margin: 0;\n  appearance: none;\n  outline: none;\n  border: none;\n  opacity: 0;\n  z-index: 3;\n"]);
@@ -699,10 +706,10 @@ function _templateObject$7() {
 
   return data;
 }
-var StyledInput = styled.input(_templateObject$7());
+var StyledInput = styled__default['default'].input(_templateObject$7());
 
 var Input = function Input(props) {
-  return /*#__PURE__*/React.createElement(StyledInput, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledInput, {
     type: "radio",
     onChange: props.handleChange,
     checked: props.checked,
@@ -712,11 +719,11 @@ var Input = function Input(props) {
 };
 
 Input.propTypes = {
-  children: PropTypes.node,
-  handleChange: PropTypes.func,
-  checked: PropTypes.bool,
-  name: PropTypes.string,
-  value: PropTypes.string
+  children: PropTypes__default['default'].node,
+  handleChange: PropTypes__default['default'].func,
+  checked: PropTypes__default['default'].bool,
+  name: PropTypes__default['default'].string,
+  value: PropTypes__default['default'].string
 };
 
 function _templateObject3$1() {
@@ -748,7 +755,7 @@ function _templateObject$8() {
 
   return data;
 }
-var Label = styled.label.attrs(function (props) {
+var Label = styled__default['default'].label.attrs(function (props) {
   return {
     name: props.name,
     selectedName: props.selectedName
@@ -756,41 +763,41 @@ var Label = styled.label.attrs(function (props) {
 })(_templateObject$8(), function (props) {
   return props.name.toLowerCase() === props.selectedName.toLowerCase() ? "#00C3E1" : "#000000";
 });
-var VeriticalDivider = styled.label(_templateObject2$1());
-var Text = styled.span(_templateObject3$1());
+var VeriticalDivider = styled__default['default'].label(_templateObject2$1());
+var Text = styled__default['default'].span(_templateObject3$1());
 
 var SegmentControl = function SegmentControl(props) {
   var selected = props.names.map(function (name) {
     return name.toLowerCase();
   }).indexOf(props.selected);
-  return /*#__PURE__*/React.createElement(Container, null, /*#__PURE__*/React.createElement(Selection, {
+  return /*#__PURE__*/React__default['default'].createElement(Container, null, /*#__PURE__*/React__default['default'].createElement(Selection, {
     in: props.checked,
     duration: 150,
     selected: selected,
     number: props.names.length
   }), props.names.map(function (name) {
-    return /*#__PURE__*/React.createElement(Option, {
+    return /*#__PURE__*/React__default['default'].createElement(Option, {
       key: name
-    }, /*#__PURE__*/React.createElement(Input, {
+    }, /*#__PURE__*/React__default['default'].createElement(Input, {
       checked: props.checked,
       handleChange: props.handleChange,
       name: name.toLowerCase(),
       value: name.toLowerCase()
-    }), /*#__PURE__*/React.createElement(Label, {
+    }), /*#__PURE__*/React__default['default'].createElement(Label, {
       htmlFor: name,
       name: name,
       selectedName: props.selected
-    }, /*#__PURE__*/React.createElement(Text, null, name)), /*#__PURE__*/React.createElement(VeriticalDivider, null));
+    }, /*#__PURE__*/React__default['default'].createElement(Text, null, name)), /*#__PURE__*/React__default['default'].createElement(VeriticalDivider, null));
   }));
 };
 
 SegmentControl.propTypes = {
-  names: PropTypes.arrayOf(PropTypes.string),
-  handleChange: PropTypes.func,
-  checked: PropTypes.bool,
-  color: PropTypes.string,
-  value: PropTypes.string,
-  selected: PropTypes.string
+  names: PropTypes__default['default'].arrayOf(PropTypes__default['default'].string),
+  handleChange: PropTypes__default['default'].func,
+  checked: PropTypes__default['default'].bool,
+  color: PropTypes__default['default'].string,
+  value: PropTypes__default['default'].string,
+  selected: PropTypes__default['default'].string
 };
 SegmentControl.defaultProps = {
   color: "#c23d38",
@@ -832,7 +839,7 @@ function _templateObject$9() {
 
   return data;
 }
-var StyledInput$1 = styled.input.attrs(function (props) {
+var StyledInput$1 = styled__default['default'].input.attrs(function (props) {
   return {
     className: props.className,
     themeMode: props.themeMode
@@ -845,7 +852,7 @@ var StyledInput$1 = styled.input.attrs(function (props) {
   return props.theme.input[props.themeMode].normal.backgroundColor;
 });
 StyledInput$1.propTypes = {
-  themeMode: PropTypes.string
+  themeMode: PropTypes__default['default'].string
 };
 StyledInput$1.defaultProps = {
   theme: inputTheme,
@@ -855,7 +862,7 @@ StyledInput$1.defaultProps = {
 var Input$1 = function Input(props) {
   var className = props.className,
       type = props.type;
-  return /*#__PURE__*/React.createElement(StyledInput$1, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledInput$1, {
     type: type,
     className: className
   }, props.children);
@@ -865,9 +872,9 @@ Input$1.defaultProps = {
   type: "text"
 };
 Input$1.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-  type: PropTypes.oneOf(["text", "password", "email"])
+  className: PropTypes__default['default'].string,
+  children: PropTypes__default['default'].node,
+  type: PropTypes__default['default'].oneOf(["text", "password", "email"])
 };
 
 function _templateObject$a() {
@@ -879,7 +886,7 @@ function _templateObject$a() {
 
   return data;
 }
-var StyledTextArea = styled.textarea.attrs(function (props) {
+var StyledTextArea = styled__default['default'].textarea.attrs(function (props) {
   return {
     className: props.className,
     themeMode: props.themeMode
@@ -892,7 +899,7 @@ var StyledTextArea = styled.textarea.attrs(function (props) {
   return props.theme.input[props.themeMode].textarea.backgroundColor;
 });
 StyledTextArea.propTypes = {
-  themeMode: PropTypes.string
+  themeMode: PropTypes__default['default'].string
 };
 StyledTextArea.defaultProps = {
   theme: inputTheme,
@@ -901,14 +908,14 @@ StyledTextArea.defaultProps = {
 
 var TextArea = function TextArea(props) {
   var className = props.className;
-  return /*#__PURE__*/React.createElement(StyledTextArea, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledTextArea, {
     className: className
   }, props.children);
 };
 
 TextArea.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node
+  className: PropTypes__default['default'].string,
+  children: PropTypes__default['default'].node
 };
 
 function _templateObject3$2() {
@@ -940,12 +947,12 @@ function _templateObject$b() {
 
   return data;
 }
-var CheckboxLabel = styled.label(_templateObject$b());
-var CheckboxMark = styled.span(_templateObject2$2());
+var CheckboxLabel = styled__default['default'].label(_templateObject$b());
+var CheckboxMark = styled__default['default'].span(_templateObject2$2());
 CheckboxMark.defaultProps = {
   theme: inputTheme
 };
-var StyledCheckbox = styled.input.attrs(function (props) {
+var StyledCheckbox = styled__default['default'].input.attrs(function (props) {
   return {
     className: props.className,
     themeMode: props.themeMode
@@ -962,25 +969,25 @@ StyledCheckbox.defaultProps = {
   themeMode: "light"
 };
 StyledCheckbox.propTypes = {
-  themeMode: PropTypes.string
+  themeMode: PropTypes__default['default'].string
 };
 
 var Checkbox = function Checkbox(props) {
   var className = props.className,
       type = props.type;
-  return /*#__PURE__*/React.createElement(CheckboxLabel, null, /*#__PURE__*/React.createElement(StyledCheckbox, {
+  return /*#__PURE__*/React__default['default'].createElement(CheckboxLabel, null, /*#__PURE__*/React__default['default'].createElement(StyledCheckbox, {
     type: type,
     className: className
-  }, props.children), /*#__PURE__*/React.createElement(CheckboxMark, null));
+  }, props.children), /*#__PURE__*/React__default['default'].createElement(CheckboxMark, null));
 };
 
 Checkbox.defaultProps = {
   type: "checkbox"
 };
 Checkbox.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-  type: PropTypes.oneOf(["checkbox"])
+  className: PropTypes__default['default'].string,
+  children: PropTypes__default['default'].node,
+  type: PropTypes__default['default'].oneOf(["checkbox"])
 };
 
 function _templateObject4() {
@@ -1022,17 +1029,17 @@ function _templateObject$c() {
 
   return data;
 }
-var ToastMessageContainer = styled.div(_templateObject$c());
-var ToastMessageTextContainer = styled.div(_templateObject2$3());
-var ToastMessageCloseButton = styled.button(_templateObject3$3());
-var ToastMainContainer = styled.div(_templateObject4());
+var ToastMessageContainer = styled__default['default'].div(_templateObject$c());
+var ToastMessageTextContainer = styled__default['default'].div(_templateObject2$3());
+var ToastMessageCloseButton = styled__default['default'].button(_templateObject3$3());
+var ToastMainContainer = styled__default['default'].div(_templateObject4());
 
 var ToastMessage = function ToastMessage(_ref) {
   var children = _ref.children,
       remove = _ref.remove;
-  var removeRef = useRef(null);
+  var removeRef = React.useRef(null);
   removeRef.current = remove;
-  useEffect(function () {
+  React.useEffect(function () {
     var duration = 5000;
     var id = setTimeout(function () {
       return removeRef.current();
@@ -1041,29 +1048,29 @@ var ToastMessage = function ToastMessage(_ref) {
       return clearTimeout(id);
     };
   }, []);
-  return /*#__PURE__*/React.createElement(ToastMessageContainer, null, /*#__PURE__*/React.createElement(ToastMessageTextContainer, null, children), /*#__PURE__*/React.createElement(ToastMessageCloseButton, {
+  return /*#__PURE__*/React__default['default'].createElement(ToastMessageContainer, null, /*#__PURE__*/React__default['default'].createElement(ToastMessageTextContainer, null, children), /*#__PURE__*/React__default['default'].createElement(ToastMessageCloseButton, {
     onClick: remove
-  }, /*#__PURE__*/React.createElement(IoIosClose, {
+  }, /*#__PURE__*/React__default['default'].createElement(io.IoIosClose, {
     size: 24
   })));
 };
 ToastMessage.propTypes = {
-  children: PropTypes.node,
-  remove: PropTypes.func,
-  duration: PropTypes.number
+  children: PropTypes__default['default'].node,
+  remove: PropTypes__default['default'].func,
+  duration: PropTypes__default['default'].number
 };
 
-var ToastContext = /*#__PURE__*/createContext(null);
+var ToastContext = /*#__PURE__*/React.createContext(null);
 
 var Toast = function Toast(props) {
-  var toastNode = useContext(ToastContext);
+  var toastNode = React.useContext(ToastContext);
 
-  var _useState = useState(false),
+  var _useState = React.useState(false),
       _useState2 = _slicedToArray(_useState, 2),
       toastIsOpen = _useState2[0],
       setToastOpen = _useState2[1];
 
-  useEffect(function () {
+  React.useEffect(function () {
     if (toastIsOpen !== props.isOpen) {
       setToastOpen(props.isOpen);
     }
@@ -1074,7 +1081,7 @@ var Toast = function Toast(props) {
     props.onClose();
   };
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, toastNode ? /*#__PURE__*/createPortal( /*#__PURE__*/React.createElement(ToastMainContainer, null, toastIsOpen && /*#__PURE__*/React.createElement(ToastMessage, {
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, toastNode ? /*#__PURE__*/reactDom.createPortal( /*#__PURE__*/React__default['default'].createElement(ToastMainContainer, null, toastIsOpen && /*#__PURE__*/React__default['default'].createElement(ToastMessage, {
     remove: function remove() {
       return _remove();
     }
@@ -1082,10 +1089,10 @@ var Toast = function Toast(props) {
 };
 
 Toast.propTypes = {
-  isOpen: PropTypes.bool,
-  message: PropTypes.string,
-  onClose: PropTypes.func,
-  variant: PropTypes.oneOf(["error", "success", "default"])
+  isOpen: PropTypes__default['default'].bool,
+  message: PropTypes__default['default'].string,
+  onClose: PropTypes__default['default'].func,
+  variant: PropTypes__default['default'].oneOf(["error", "success", "default"])
 };
 Toast.defaultProps = {
   variant: "default"
@@ -1105,7 +1112,7 @@ var sidebarTheme = {
 };
 
 function useClickOutside(ref, action) {
-  React.useEffect(function () {
+  React__default['default'].useEffect(function () {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
         action();
@@ -1120,7 +1127,7 @@ function useClickOutside(ref, action) {
 }
 
 var Sidebar = function Sidebar(props) {
-  var _React$useState = React.useState(props.isClose),
+  var _React$useState = React__default['default'].useState(props.isClose),
       _React$useState2 = _slicedToArray(_React$useState, 2),
       isClose = _React$useState2[0],
       setClose = _React$useState2[1];
@@ -1156,18 +1163,18 @@ var Sidebar = function Sidebar(props) {
       opacity: 1
     }
   };
-  React.useEffect(function () {
+  React__default['default'].useEffect(function () {
     if (props.isClose !== isClose) {
       setClose(props.isClose);
     }
   }, [props.isClose]);
-  var sidebarRef = React.useRef(null);
+  var sidebarRef = React__default['default'].useRef(null);
   useClickOutside(sidebarRef, props.handleClose);
-  return /*#__PURE__*/React.createElement(Transition, {
+  return /*#__PURE__*/React__default['default'].createElement(reactTransitionGroup.Transition, {
     in: isClose,
     timeout: props.timeout
   }, function (state) {
-    return /*#__PURE__*/React.createElement("div", {
+    return /*#__PURE__*/React__default['default'].createElement("div", {
       ref: sidebarRef,
       style: _objectSpread2(_objectSpread2({}, defaultStyle), transitionStyles[state]),
       className: props.className
@@ -1176,13 +1183,13 @@ var Sidebar = function Sidebar(props) {
 };
 
 Sidebar.propTypes = {
-  isClose: PropTypes.bool,
-  timeout: PropTypes.number,
-  theme: PropTypes.object,
-  themeMode: PropTypes.string,
-  width: PropTypes.number,
-  className: PropTypes.string,
-  handleClose: PropTypes.func
+  isClose: PropTypes__default['default'].bool,
+  timeout: PropTypes__default['default'].number,
+  theme: PropTypes__default['default'].object,
+  themeMode: PropTypes__default['default'].string,
+  width: PropTypes__default['default'].number,
+  className: PropTypes__default['default'].string,
+  handleClose: PropTypes__default['default'].func
 };
 Sidebar.defaultProps = {
   isClose: false,
@@ -1211,41 +1218,41 @@ function _templateObject$d() {
 
   return data;
 }
-var StyledCard = styled.div.attrs(function (props) {
+var StyledCard = styled__default['default'].div.attrs(function (props) {
   return {
     className: props.className
   };
 })(_templateObject$d());
 StyledCard.propTypes = {
-  className: PropTypes.string
+  className: PropTypes__default['default'].string
 };
-var StyledCardbody = styled.div.attrs(function (props) {
+var StyledCardbody = styled__default['default'].div.attrs(function (props) {
   return {
     className: props.className
   };
 })(_templateObject2$4());
 StyledCardbody.propTypes = {
-  className: PropTypes.string
+  className: PropTypes__default['default'].string
 };
 
 var Card = function Card(props) {
-  return /*#__PURE__*/React.createElement(StyledCard, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledCard, {
     className: props.className
   }, props.children);
 };
 
 Card.propTypes = {
-  className: PropTypes.string
+  className: PropTypes__default['default'].string
 };
 
 var Cardbody = function Cardbody(props) {
-  return /*#__PURE__*/React.createElement(StyledCardbody, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledCardbody, {
     className: props.className
   }, props.children);
 };
 
 Cardbody.propTypes = {
-  className: PropTypes.string
+  className: PropTypes__default['default'].string
 };
 
 function _templateObject$e() {
@@ -1257,11 +1264,11 @@ function _templateObject$e() {
 
   return data;
 }
-var StyledInput$2 = styled.input(_templateObject$e(), function (props) {
+var StyledInput$2 = styled__default['default'].input(_templateObject$e(), function (props) {
   return props.checked ? "#2819ae" : "";
 });
 var SwitchInput = function SwitchInput(props) {
-  return /*#__PURE__*/React.createElement(StyledInput$2, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledInput$2, {
     type: "checkbox",
     onChange: props.handleChange,
     checked: props.checked,
@@ -1269,10 +1276,10 @@ var SwitchInput = function SwitchInput(props) {
   });
 };
 SwitchInput.propTypes = {
-  children: PropTypes.node,
-  handleChange: PropTypes.func,
-  checked: PropTypes.bool,
-  name: PropTypes.string
+  children: PropTypes__default['default'].node,
+  handleChange: PropTypes__default['default'].func,
+  checked: PropTypes__default['default'].bool,
+  name: PropTypes__default['default'].string
 };
 
 function _templateObject$f() {
@@ -1284,7 +1291,7 @@ function _templateObject$f() {
 
   return data;
 }
-var SwitchLabel = styled.label(_templateObject$f());
+var SwitchLabel = styled__default['default'].label(_templateObject$f());
 
 var defaultStyle$1 = {
   position: "absolute",
@@ -1314,11 +1321,11 @@ var transitionStyles = {
 };
 
 var SwitchSlider = function SwitchSlider(props) {
-  return /*#__PURE__*/React.createElement(Transition, {
+  return /*#__PURE__*/React__default['default'].createElement(reactTransitionGroup.Transition, {
     in: props.in,
     timeout: props.duration
   }, function (state) {
-    return /*#__PURE__*/React.createElement("span", {
+    return /*#__PURE__*/React__default['default'].createElement("span", {
       style: _objectSpread2(_objectSpread2(_objectSpread2({}, defaultStyle$1), transitionStyles[state]), {}, {
         backgroundColor: props.in ? props.color : "#ffffff",
         border: "1px solid ".concat(props.color)
@@ -1328,9 +1335,9 @@ var SwitchSlider = function SwitchSlider(props) {
 };
 
 SwitchSlider.propTypes = {
-  in: PropTypes.bool,
-  timeout: PropTypes.number,
-  color: PropTypes.string
+  in: PropTypes__default['default'].bool,
+  timeout: PropTypes__default['default'].number,
+  color: PropTypes__default['default'].string
 };
 SwitchSlider.defaultProps = {
   in: false,
@@ -1347,7 +1354,7 @@ function _templateObject$g() {
 
   return data;
 }
-var SwitchSliderWrapper = styled.span.attrs(function (props) {
+var SwitchSliderWrapper = styled__default['default'].span.attrs(function (props) {
   return {
     color: props.color
   };
@@ -1355,35 +1362,35 @@ var SwitchSliderWrapper = styled.span.attrs(function (props) {
   return props.color;
 });
 SwitchSliderWrapper.propTypes = {
-  color: PropTypes.string
+  color: PropTypes__default['default'].string
 };
 SwitchSliderWrapper.defaultProps = {
   color: "#c23d38"
 };
 
 var Switch = function Switch(props) {
-  var ref = React.useRef(null);
-  React.useEffect(function () {
+  var ref = React__default['default'].useRef(null);
+  React__default['default'].useEffect(function () {
     console.log("width", ref.current ? ref.current.offsetWidth : 0);
   }, [ref.current]);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SwitchLabel, null, /*#__PURE__*/React.createElement(SwitchInput, {
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(SwitchLabel, null, /*#__PURE__*/React__default['default'].createElement(SwitchInput, {
     checked: props.checked,
     handleChange: props.handleChange,
     name: props.name
-  }), /*#__PURE__*/React.createElement(SwitchSliderWrapper, {
+  }), /*#__PURE__*/React__default['default'].createElement(SwitchSliderWrapper, {
     ref: ref,
     color: props.color
-  }, /*#__PURE__*/React.createElement(SwitchSlider, {
+  }, /*#__PURE__*/React__default['default'].createElement(SwitchSlider, {
     in: props.checked,
     duration: 150
   }))));
 };
 
 Switch.propTypes = {
-  name: PropTypes.string,
-  handleChange: PropTypes.func,
-  checked: PropTypes.bool,
-  color: PropTypes.string
+  name: PropTypes__default['default'].string,
+  handleChange: PropTypes__default['default'].func,
+  checked: PropTypes__default['default'].bool,
+  color: PropTypes__default['default'].string
 };
 Switch.defaultProps = {
   color: "#c23d38",
@@ -1396,7 +1403,7 @@ var SvgIcon = function SvgIcon(props) {
       fontSize = props.fontSize,
       viewBox = props.viewBox,
       children = props.children;
-  return /*#__PURE__*/createElement("svg", {
+  return /*#__PURE__*/React.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "1em",
     height: "1em",
@@ -1411,31 +1418,31 @@ var SvgIcon = function SvgIcon(props) {
 };
 
 SvgIcon.propTypes = {
-  className: PropTypes.string,
-  color: PropTypes.string,
-  fontSize: PropTypes.string,
-  viewBox: PropTypes.string,
-  children: PropTypes.children
+  className: PropTypes__default['default'].string,
+  color: PropTypes__default['default'].string,
+  fontSize: PropTypes__default['default'].string,
+  viewBox: PropTypes__default['default'].string,
+  children: PropTypes__default['default'].children
 };
 SvgIcon.defaultProps = {
   color: "inherit",
   fontSize: "default",
   viewBox: "0 0 24 24"
 };
-var SvgIcon$1 = /*#__PURE__*/memo(SvgIcon);
+var SvgIcon$1 = /*#__PURE__*/React.memo(SvgIcon);
 
 var Alarm = function Alarm(props) {
-  return /*#__PURE__*/createElement(SvgIcon$1, props, /*#__PURE__*/createElement("path", {
+  return /*#__PURE__*/React.createElement(SvgIcon$1, props, /*#__PURE__*/React.createElement("path", {
     "fill-rule": "evenodd",
     d: "M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z"
   }));
 };
 Alarm.propTypes = {
-  className: PropTypes.string,
-  color: PropTypes.string,
-  fontSize: PropTypes.string,
-  viewBox: PropTypes.string,
-  children: PropTypes.children
+  className: PropTypes__default['default'].string,
+  color: PropTypes__default['default'].string,
+  fontSize: PropTypes__default['default'].string,
+  viewBox: PropTypes__default['default'].string,
+  children: PropTypes__default['default'].children
 };
 Alarm.defaultProps = {
   color: "inherit",
@@ -1443,4 +1450,20 @@ Alarm.defaultProps = {
   viewBox: "0 0 24 24"
 };
 
-export { Alarm, Button, Card, Cardbody, Checkbox, Col, Footer, Grid, Input$1 as Input, ListGroup, ListItem, Row, SegmentControl, Sidebar, Switch, TextArea, Toast };
+exports.Alarm = Alarm;
+exports.Button = Button;
+exports.Card = Card;
+exports.Cardbody = Cardbody;
+exports.Checkbox = Checkbox;
+exports.Col = Col;
+exports.Footer = Footer;
+exports.Grid = Grid;
+exports.Input = Input$1;
+exports.ListGroup = ListGroup;
+exports.ListItem = ListItem;
+exports.Row = Row;
+exports.SegmentControl = SegmentControl;
+exports.Sidebar = Sidebar;
+exports.Switch = Switch;
+exports.TextArea = TextArea;
+exports.Toast = Toast;

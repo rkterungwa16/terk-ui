@@ -22,6 +22,27 @@ StyledRow.propTypes = {
   className: PropTypes.string,
 };
 
+export const StyledCol = styled.div.attrs((props) => ({
+  className: props.className,
+  xs: props.xs,
+  sm: props.sm,
+  md: props.md,
+  lg: props.lg,
+}))`
+  float: left;
+  padding: 10px;
+  ${({ xs }) => (xs ? generateGridWidth(xs) : "width: 100%")}
+  @media only screen and (min-width: 768px) {
+    ${({ sm }) => generateGridWidth(sm)}
+  }
+  @media only screen and (min-width: 992px) {
+    ${({ md }) => generateGridWidth(md)}
+  }
+  @media only screen and (min-width: 1200px) {
+    ${({ lg }) => generateGridWidth(lg)}
+  }
+`;
+
 export const StyledGrid = styled.div.attrs((props) => ({
   xs: props.xs,
   sm: props.sm,
