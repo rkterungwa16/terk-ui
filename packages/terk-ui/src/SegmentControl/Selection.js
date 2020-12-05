@@ -16,18 +16,20 @@ const defaultStyle = {
 };
 
 const Selection = (props) => {
+  const [width, setWidth] = React.useState(400);
+  React.useEffect(() => {
+    if (props.width !== width) {
+      setWidth(props.width);
+    }
+  }, [props.width]);
   const transitionStyles = {
     entering: {
       opacity: 1,
-      transform: `translateX(${
-        (props.selected * props.width) / props.number
-      }px)`,
+      transform: `translateX(${(props.selected * width) / props.number}px)`,
     },
     entered: {
       opacity: 1,
-      transform: `translateX(${
-        (props.selected * props.width) / props.number
-      }px)`,
+      transform: `translateX(${(props.selected * width) / props.number}px)`,
     },
     exiting: { opacity: 1 },
     exited: { opacity: 1 },
@@ -40,7 +42,7 @@ const Selection = (props) => {
             style={{
               ...defaultStyle,
               ...transitionStyles[state],
-              width: `${props.width / props.number}px`,
+              width: `${width / props.number}px`,
             }}
           >
             {props.children}
@@ -64,7 +66,6 @@ Selection.defaultProps = {
   in: false,
   timeout: 150,
   color: "#c23d38",
-  width: 400,
   number: 3,
 };
 

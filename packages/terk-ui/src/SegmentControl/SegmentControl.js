@@ -7,16 +7,30 @@ import Input from "./Input";
 import { Label, Text, VeriticalDivider } from "./Labels";
 
 const SegmentControl = (props) => {
+  const [width, setWidth] = React.useState(400);
+  const segementElement = React.useRef(null);
+
+  React.useEffect(() => {
+    function handleResize() {
+      const currentWidth = segementElement.current.parentElement.clientWidth;
+      setWidth(currentWidth);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
   const selected = props.names
     .map((name) => name.toLowerCase())
     .indexOf(props.selected);
   return (
-    <Container>
+    <Container ref={segementElement}>
       <Selection
         in={props.checked}
         duration={150}
         selected={selected}
         number={props.names.length}
+        width={width}
       />
       {props.names.map((name) => (
         <Option key={name}>

@@ -17,18 +17,16 @@ const Container = styled.div.attrs((props) => ({
   outline: none;
   display: flex;
   height: 30px;
-  max-width: ${(props) => props.width}px;
-  width: ${(props) => props.width}px;
+  max-width: 100%;
+  width: 100%;
   box-sizing: border-box;
 `;
 
 Container.propTypes = {
-  width: PropTypes.number,
   number: PropTypes.number,
 };
 
 Container.defaultProps = {
-  width: 400,
   number: 3,
   theme: segmentControlTheme,
 };
