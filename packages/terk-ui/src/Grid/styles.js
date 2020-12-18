@@ -1,48 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
-import {
-  generateGridWidth,
-  generateMediaQueries,
-  generateFlexStyle,
-} from "./utils";
-
-export const StyledRow = styled.div.attrs((props) => ({
-  className: props.className,
-}))`
-  display: flex;
-  @media only screen and (max-width: 600px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-StyledRow.propTypes = {
-  className: PropTypes.string,
-};
-
-export const StyledCol = styled.div.attrs((props) => ({
-  className: props.className,
-  xs: props.xs,
-  sm: props.sm,
-  md: props.md,
-  lg: props.lg,
-}))`
-  float: left;
-  padding: 10px;
-  ${({ xs }) => (xs ? generateGridWidth(xs) : "width: 100%")}
-  @media only screen and (min-width: 768px) {
-    ${({ sm }) => generateGridWidth(sm)}
-  }
-  @media only screen and (min-width: 992px) {
-    ${({ md }) => generateGridWidth(md)}
-  }
-  @media only screen and (min-width: 1200px) {
-    ${({ lg }) => generateGridWidth(lg)}
-  }
-`;
-
+import { generateMediaQueries, generateFlexStyle } from "./utils";
+// TODO: Remove props from top object.
+// TODO: Create PropTypes
 export const StyledGrid = styled.div.attrs((props) => ({
   xs: props.xs,
   sm: props.sm,
@@ -61,13 +22,16 @@ export const StyledGrid = styled.div.attrs((props) => ({
   }`,
 }))`
   ${(props) => {
+    return `${generateMediaQueries(props)}`;
+  }}
+  ${(props) => {
     if (props.container && !props.item) {
       return `
         &.container {
           flex-wrap: wrap;
           display: flex;
-          width: 100%;
           box-sizing: border-box;
+          ${generateFlexStyle(props)}
         }
         ${
           props.spacing
