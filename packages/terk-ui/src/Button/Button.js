@@ -8,7 +8,7 @@ const Button = (props) => {
 };
 
 Button.propTypes = {
-  variant: PropTypes.oneOf(["contained", "outline"]),
+  variant: PropTypes.oneOf(["contained", "outlined"]),
   color: PropTypes.oneOf(["primary", "secondary", "danger"]),
   fullWidth: PropTypes.bool,
   borderRadius: PropTypes.number,

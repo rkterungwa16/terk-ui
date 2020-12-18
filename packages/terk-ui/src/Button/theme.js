@@ -16,7 +16,7 @@ export const buttonTheme = {
         danger: "#FB7F6B",
       },
     },
-    outline: {
+    outlined: {
       color: "#06c3e1",
       borderColor: {
         primary: "#06c3e1",
