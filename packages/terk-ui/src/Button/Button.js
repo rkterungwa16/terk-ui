@@ -1,17 +1,55 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyledButton } from "./styles";
+import {
+  StyledButton,
+  StyledButtonLabel,
+  StyledEndIcon,
+  StyledStartIcon
+} from "./style";
 import { buttonTheme } from "./theme";
 
 const Button = (props) => {
-  return <StyledButton {...props}>{props.children}</StyledButton>;
+  const startIcon = props.startIcon && (
+    <StyledStartIcon>
+      {props.startIcon}
+    </StyledStartIcon>
+  );
+
+  const endIcon = props.endIcon && (
+    <StyledEndIcon>
+      {props.endIcon}
+    </StyledEndIcon>
+  );
+  return (
+    <StyledButton {...props}>
+      <StyledButtonLabel>
+        {startIcon}
+        {props.children}
+        {endIcon}
+      </StyledButtonLabel>
+    </StyledButton>
+  );
 };
 
 Button.propTypes = {
-  variant: PropTypes.oneOf(["contained", "outlined"]),
-  color: PropTypes.oneOf(["primary", "secondary", "danger"]),
+  variant: PropTypes.oneOf(["contained", "outlined", "text"]),
+  themeType: PropTypes.oneOf(["light", "dark"]),
+  shape: PropTypes.oneOf(["standard", "square", "pill"]),
+  size: PropTypes.oneOf(["small", "medium", "large"]),
+  startIcon: PropTypes.node,
+  endIcon: PropTypes.node,
+  color: PropTypes.oneOf([
+    "primary",
+    "secondary",
+    "danger",
+    "success",
+    "warning",
+    "danger",
+    "info",
+    "light",
+    "dark"
+  ]),
   fullWidth: PropTypes.bool,
-  borderRadius: PropTypes.number,
   onClick: PropTypes.func,
   onDragLeave: PropTypes.func,
   onFocus: PropTypes.func,
@@ -31,9 +69,12 @@ Button.propTypes = {
 Button.defaultProps = {
   variant: "contained",
   color: "primary",
+  themeType: "light",
+  shape: "standard",
   theme: buttonTheme,
   fullWidth: false,
   disabled: false,
+  size: "medium"
 };
 
 export default Button;
