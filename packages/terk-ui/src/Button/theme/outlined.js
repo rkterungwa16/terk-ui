@@ -65,26 +65,26 @@ export default {
     dark: {
         primary: {
             active: {
-                color: "#ffffff",
+                color: "#4638c2",
                 borderColor: "#4638c2",
                 backgroundColor: "transparent"
             },
             disabled: {
-                color: "#ffffff",
+                color: "#4c4f54",
                 borderColor: "#4c4f54",
                 backgroundColor: "transparent"
             }
         },
         secondary: {
             active: {
-                color: "#ffffff",
+                color: "#4c4f54",
                 borderColor: "#4c4f54",
                 backgroundColor: "transparent"
             }
         },
         success: {
             active: {
-                color: "#ffffff",
+                color: "#45a164",
                 borderColor: "#45a164",
                 backgroundColor: "transparent"
             },
@@ -149,8 +149,8 @@ export default {
             },
             disabled: {
                 color: "#ffffff",
-                background: "#181924" 
-             }
+                background: "#181924"
+            }
         }
     }
 };

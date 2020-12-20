@@ -69,6 +69,7 @@ const setButtonSize = (size) => {
   }
   return buttonSizeStyle[size];
 }
+
 const setButtonStatus = (
   isDisabled,
   fullWidth,
@@ -97,6 +98,15 @@ const setButtonStatus = (
   }
   return buttonStatusStyle[isDisabled];
 }
+
+export const StyledButtonGroup = styled.div.attrs((props) => ({
+  role: "group"
+}))`
+  ${(props) => {
+      return setButtonShape(props.shape);
+  }}
+  display: inline-flex;
+`;
 
 export const StyledButtonLabel = styled.span`
   width: 100%;
