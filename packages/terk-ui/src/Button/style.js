@@ -7,9 +7,11 @@ export const StyledButton = styled.button.attrs((props) => ({
 }))`
   min-width: 64px;
   ${(props) => {
+    return `${props.fullWidth ? "width: 100%;" : ""}`
+  }}
+  ${(props) => {
     return setButtonStatus(
       props.disabled,
-      props.fullWidth,
       props.theme.button[props.variant],
       props.themeType,
       props.color,
@@ -72,12 +74,14 @@ const setButtonSize = (size) => {
 
 const setButtonStatus = (
   isDisabled,
-  fullWidth,
   variantTheme,
   themeType,
   color
 ) => {
-  const buttonStatusTheme = isDisabled ? variantTheme[themeType][color].disabled : variantTheme[themeType][color].active;
+  const buttonStatusTheme = isDisabled
+  ? variantTheme[themeType][color].disabled
+  : variantTheme[themeType][color].active;
+
   const buttonStatusStyle = {
     true: `
       background: ${buttonStatusTheme.backgroundColor};
@@ -86,24 +90,47 @@ const setButtonStatus = (
       cursor: default;
       pointer-events: none;
       opacity: .65;
-      ${fullWidth ? "width: 100%;" : ""}
   `,
     false: `
       border: 1px solid ${buttonStatusTheme.borderColor};
       color: ${buttonStatusTheme.color};
       background-color: ${buttonStatusTheme.backgroundColor};
       cursor: pointer;
-      ${fullWidth ? "width: 100%;" : ""}
     `
   }
   return buttonStatusStyle[isDisabled];
+}
+
+const setIconButtonStatus = (
+  isDisabled,
+  theme,
+  themeType,
+  color
+) => {
+  const iconButtonStatusTheme = isDisabled
+  ? theme[themeType][color].disabled
+  : theme[themeType][color].active;
+
+  const iconButtonStatusStyle = {
+    true: `
+      color: ${iconButtonStatusTheme.color};
+      cursor: default;
+      pointer-events: none;
+      opacity: .65;
+  `,
+    false: `
+      color: ${iconButtonStatusTheme.color};
+      cursor: pointer;
+    `
+  }
+  return iconButtonStatusStyle[isDisabled];
 }
 
 export const StyledButtonGroup = styled.div.attrs((props) => ({
   role: "group"
 }))`
   ${(props) => {
-    return setButtonShape(props.shape);
+      return setButtonShape(props.shape);
   }}
   display: inline-flex;
 `;
@@ -125,4 +152,47 @@ export const StyledEndIcon = styled.span`
   display: inherit;
   margin-left: 8px;
   margin-right: -8px;
+`;
+
+export const StyledIconButton = styled.button.attrs((props) => ({
+  className: props.className,
+  disabled: props.disabled,
+  type: "button",
+}))`
+  ${(props) => {
+    return setIconButtonStatus(
+      props.disabled,
+      props.theme.iconButton,
+      props.themeType,
+      props.color,
+    )
+  }}
+
+  ${(props) => {
+    return setButtonSize(props.size);
+  }}
+  flex: 0 0 auto;
+  cursor: pointer;
+  margin: 0;
+  outline: 0;
+  padding: 12px;
+  border: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  vertical-align: middle;
+  justify-content: center;
+  text-decoration: none;
+  overflow: visible;
+  text-align: center;
+  border-radius: 50%;
+  background-color: transparent;
+`;
+
+export const StyledIconButtonLabel = styled.span`
+  width: 100%;
+  display: flex;
+  align-items: inherit;
+  justify-content: inherit;
 `;

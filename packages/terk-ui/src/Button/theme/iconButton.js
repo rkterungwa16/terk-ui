@@ -1,31 +1,28 @@
 export default {
-    borderRadius: "",
     light: {
         primary: {
             active: {
-                color: "#ffffff",
-                backgroundColor: "#321fdb",
-                borderColor: "#4638c2"
+                color: "#321fdb"
             },
             disabled: {
-                color: "#ffffff",
-                backgroundColor: "#4638c2",
-                borderColor: "#4638c2"
+                color: "#4638c2",
             }
         },
         secondary: {
             active: {
                 color: "#4f5d73",
-                backgroundColor: "#ced2d8",
-                borderColor: "#4638c2"
+            },
+            disabled: {
+                color: "#4f5d73",
             }
         },
         success: {
             active: {
-                color: "#ffffff",
-                backgroundColor: "#2eb85c",
-                borderColor: "#4638c2"
+                color: "#2eb85c",
             },
+            disabled: {
+                color: "#2eb85c",
+            }
         },
         warning: {
             active: {
@@ -45,8 +42,9 @@ export default {
             active: {
                 color: "#ffffff",
                 backgroundColor: "#39f"
-  ,
-borderColor: "#4638c2"          }
+                ,
+                borderColor: "#4638c2"
+            }
         },
         light: {
             active: {
@@ -149,8 +147,8 @@ borderColor: "#4638c2"          }
             },
             disabled: {
                 color: "#ffffff",
-                background: "#181924" 
-             }
+                background: "#181924"
+            }
         }
     }
 }
