@@ -15,5 +15,5 @@ export { default as Card } from "./Card/Card";
 export { default as Cardbody } from "./Card/Cardbody";
 export { default as Switch } from "./Switch/Switch";
 export { default as IconButton } from "./IconButton/IconButton";
-export { default as IconButtonLabel } from "./IconButtonLabel/IconButtonLabel"
+export { default as IconButtonLabel } from "./IconButtonLabel/IconButtonLabel";
 export * from "./Icons/index";
