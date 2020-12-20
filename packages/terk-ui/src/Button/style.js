@@ -103,7 +103,7 @@ export const StyledButtonGroup = styled.div.attrs((props) => ({
   role: "group"
 }))`
   ${(props) => {
-      return setButtonShape(props.shape);
+    return setButtonShape(props.shape);
   }}
   display: inline-flex;
 `;
