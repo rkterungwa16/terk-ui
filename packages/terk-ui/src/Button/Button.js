@@ -4,21 +4,17 @@ import {
   StyledButton,
   StyledButtonLabel,
   StyledEndIcon,
-  StyledStartIcon
+  StyledStartIcon,
 } from "./style";
 import { buttonTheme } from "./theme";
 
 const Button = (props) => {
   const startIcon = props.startIcon && (
-    <StyledStartIcon>
-      {props.startIcon}
-    </StyledStartIcon>
+    <StyledStartIcon>{props.startIcon}</StyledStartIcon>
   );
 
   const endIcon = props.endIcon && (
-    <StyledEndIcon>
-      {props.endIcon}
-    </StyledEndIcon>
+    <StyledEndIcon>{props.endIcon}</StyledEndIcon>
   );
   return (
     <StyledButton {...props}>
@@ -47,7 +43,7 @@ Button.propTypes = {
     "danger",
     "info",
     "light",
-    "dark"
+    "dark",
   ]),
   fullWidth: PropTypes.bool,
   onClick: PropTypes.func,
@@ -74,7 +70,7 @@ Button.defaultProps = {
   theme: buttonTheme,
   fullWidth: false,
   disabled: false,
-  size: "medium"
+  size: "medium",
 };
 
 export default Button;

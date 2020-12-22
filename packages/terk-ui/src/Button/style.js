@@ -7,15 +7,15 @@ export const StyledButton = styled.button.attrs((props) => ({
 }))`
   min-width: 64px;
   ${(props) => {
-    return `${props.fullWidth ? "width: 100%;" : ""}`
+    return `${props.fullWidth ? "width: 100%;" : ""}`;
   }}
   ${(props) => {
     return setButtonStatus(
       props.disabled,
       props.theme.button[props.variant],
       props.themeType,
-      props.color,
-    )
+      props.color
+    );
   }}
   ${(props) => {
     return setButtonShape(props.shape);
@@ -48,11 +48,11 @@ const setButtonShape = (shape) => {
   const buttonShapeStyle = {
     square: "border-radius: 0;",
     standard: "border-radius: 4px;",
-    pill: "border-radius: 21px;"
-  }
+    pill: "border-radius: 21px;",
+  };
 
   return buttonShapeStyle[shape];
-}
+};
 
 const setButtonSize = (size) => {
   const buttonSizeStyle = {
@@ -67,20 +67,15 @@ const setButtonSize = (size) => {
     large: `
       padding: 8px 22px;
       font-size: 0.9375rem;
-    `
-  }
+    `,
+  };
   return buttonSizeStyle[size];
-}
+};
 
-const setButtonStatus = (
-  isDisabled,
-  variantTheme,
-  themeType,
-  color
-) => {
+const setButtonStatus = (isDisabled, variantTheme, themeType, color) => {
   const buttonStatusTheme = isDisabled
-  ? variantTheme[themeType][color].disabled
-  : variantTheme[themeType][color].active;
+    ? variantTheme[themeType][color].disabled
+    : variantTheme[themeType][color].active;
 
   const buttonStatusStyle = {
     true: `
@@ -96,20 +91,15 @@ const setButtonStatus = (
       color: ${buttonStatusTheme.color};
       background-color: ${buttonStatusTheme.backgroundColor};
       cursor: pointer;
-    `
-  }
+    `,
+  };
   return buttonStatusStyle[isDisabled];
-}
+};
 
-const setIconButtonStatus = (
-  isDisabled,
-  theme,
-  themeType,
-  color
-) => {
+const setIconButtonStatus = (isDisabled, theme, themeType, color) => {
   const iconButtonStatusTheme = isDisabled
-  ? theme[themeType][color].disabled
-  : theme[themeType][color].active;
+    ? theme[themeType][color].disabled
+    : theme[themeType][color].active;
 
   const iconButtonStatusStyle = {
     true: `
@@ -121,16 +111,16 @@ const setIconButtonStatus = (
     false: `
       color: ${iconButtonStatusTheme.color};
       cursor: pointer;
-    `
-  }
+    `,
+  };
   return iconButtonStatusStyle[isDisabled];
-}
+};
 
 export const StyledButtonGroup = styled.div.attrs((props) => ({
-  role: "group"
+  role: "group",
 }))`
   ${(props) => {
-      return setButtonShape(props.shape);
+    return setButtonShape(props.shape);
   }}
   display: inline-flex;
 `;
@@ -164,8 +154,8 @@ export const StyledIconButton = styled.button.attrs((props) => ({
       props.disabled,
       props.theme.iconButton,
       props.themeType,
-      props.color,
-    )
+      props.color
+    );
   }}
 
   ${(props) => {

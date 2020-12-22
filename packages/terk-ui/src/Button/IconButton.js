@@ -23,7 +23,7 @@ IconButton.propTypes = {
     "danger",
     "info",
     "light",
-    "dark"
+    "dark",
   ]),
   disabled: PropTypes.bool,
   onClick: PropTypes.func,

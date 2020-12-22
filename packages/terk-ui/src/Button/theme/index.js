@@ -3,9 +3,9 @@ import outlined from "./outlined";
 import iconButton from "./iconButton";
 
 export const buttonTheme = {
-    button: {
-        contained,
-        outlined,
-    },
-    iconButton,
-}
+  button: {
+    contained,
+    outlined,
+  },
+  iconButton,
+};
