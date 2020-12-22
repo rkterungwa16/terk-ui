@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { StyledButtonGroup } from "./style";
-import { buttonTheme } from "./theme";
+import { ButtonDefaultProps, ButtonDisplayProps } from "./BaseButtonProps";
 
 const ButtonGroup = (props) => {
   const {
@@ -15,10 +15,10 @@ const ButtonGroup = (props) => {
     theme,
     disabled,
     fullWidth,
-    className
+    className,
   } = props;
   return (
-    <StyledButtonGroup shape={shape} >
+    <StyledButtonGroup shape={shape}>
       {React.Children.map(children, (child) => {
         if (!React.isValidElement(child)) {
           return null;
@@ -32,44 +32,23 @@ const ButtonGroup = (props) => {
           disabled,
           fullWidth,
           variant,
-          className
-        })
+          className,
+        });
       })}
     </StyledButtonGroup>
-  )
-}
+  );
+};
 
 ButtonGroup.propTypes = {
+  ...ButtonDisplayProps,
   className: PropTypes.string,
-  variant: PropTypes.oneOf(["contained", "outlined"]),
-  themeType: PropTypes.oneOf(["light", "dark"]),
-  shape: PropTypes.oneOf(["standard", "square", "pill"]),
-  size: PropTypes.oneOf(["small", "medium", "large"]),
-  color: PropTypes.oneOf([
-    "primary",
-    "secondary",
-    "danger",
-    "success",
-    "warning",
-    "danger",
-    "info",
-    "light",
-    "dark"
-  ]),
   fullWidth: PropTypes.bool,
   disabled: PropTypes.bool,
-  children: PropTypes.node
-}
+  children: PropTypes.node,
+};
 
 ButtonGroup.defaultProps = {
-  variant: "contained",
-  color: "primary",
-  themeType: "light",
-  shape: "standard",
-  size: "medium",
-  theme: buttonTheme,
-  fullWidth: false,
-  disabled: false,
-}
+  ...ButtonDefaultProps,
+};
 
 export default ButtonGroup;
