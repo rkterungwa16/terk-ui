@@ -8,7 +8,6 @@ import SwitchSliderWrapper from "./SwitchSliderWrapper";
 const Switch = (props) => {
   const ref = React.useRef(null);
   React.useEffect(() => {
-    console.log("width", ref.current ? ref.current.offsetWidth : 0);
   }, [ref.current]);
   return (
     <>
