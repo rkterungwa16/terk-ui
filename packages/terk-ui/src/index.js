@@ -17,4 +17,7 @@ export { default as Card } from "./Card/Card";
 export { default as Cardbody } from "./Card/Cardbody";
 export { default as Switch } from "./Switch/Switch";
 export { default as IconButtonLabel } from "./IconButtonLabel/IconButtonLabel";
+export { default as Radio } from "./Radio/Radio";
+export { default as RadioGroup } from "./Radio/RadioGroup";
+export { default as RadioLabel } from "./Radio/RadioLabel";
 export * from "./Icons/index";
