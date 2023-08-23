@@ -1,11 +1,6 @@
-import React from "react";
 import PropTypes from "prop-types";
 import { StyledIconButton, StyledIconButtonLabel } from "./style";
-import {
-  ButtonEventsProps,
-  ButtonDisplayProps,
-  ButtonDefaultProps,
-} from "./BaseButtonProps";
+import { ButtonEventsProps, ButtonDisplayProps, ButtonDefaultProps } from "./BaseButtonProps";
 
 const IconButton = React.forwardRef((props, ref) => {
   return (
@@ -17,22 +12,18 @@ const IconButton = React.forwardRef((props, ref) => {
 
 const { shape, variant, ...ModifiedButtonDisplayProps } = ButtonDisplayProps;
 
-const {
-  variant,
-  shape,
-  fullWidth,
-  ...ModifiedButtonDefaultProps
-} = ButtonDefaultProps;
+const { variant, shape, fullWidth, ...ModifiedButtonDefaultProps } = ButtonDefaultProps;
 
 IconButton.propTypes = {
   disabled: PropTypes.bool,
   ...ButtonEventsProps,
   ...ModifiedButtonDisplayProps,
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 IconButton.defaultProps = {
-  ...ModifiedButtonDefaultProps,
+  ...ModifiedButtonDefaultProps
 };
 
 export default IconButton;
+

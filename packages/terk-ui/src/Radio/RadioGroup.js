@@ -7,9 +7,7 @@ const RadioGroup = (props) => {
   const { name, onChange, value: valueProp } = props;
   const [value, setValue] = React.useState("");
 
-  const handleChange = (
-    event
-  ) => {
+  const handleChange = (event) => {
     setValue(event.target.value);
     if (onChange) {
       onChange(event, event.target.checked);
@@ -34,6 +32,6 @@ RadioGroupProp.PropTypes = {
   name: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
-}
+};
 
 export default React.memo(RadioGroup);
