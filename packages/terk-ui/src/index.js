@@ -18,5 +18,5 @@ export { default as IconButtonLabel } from "./IconButtonLabel/IconButtonLabel";
 export { default as Radio } from "./Radio/Radio";
 export { default as RadioGroup } from "./Radio/RadioGroup";
 export { default as RadioLabel } from "./Radio/RadioLabel";
-export { default as Typography } from "./Typography/Typography";
+export * from "./Typography";
 export * from "./Icons/index";
