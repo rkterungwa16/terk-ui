@@ -1,3 +1,5 @@
+import { devices } from "../util/breakpoints";
+
 /**
  *
  * @param {Number} size
@@ -38,7 +40,7 @@ export function generateMediaQueries({ xs, sm, md, lg }: BreakpointProps) {
     }
     ${
       sm
-        ? `@media only screen and (min-width: 768px) {
+        ? `@media only screen and ${devices.sm} {
         ${generateGridWidth(sm)}
         flex-basis: ${(Number(sm) / 12) * 100}%;
         box-sizing: border-box;
@@ -47,7 +49,7 @@ export function generateMediaQueries({ xs, sm, md, lg }: BreakpointProps) {
     }
     ${
       md
-        ? `@media only screen and (min-width: 992px) {
+        ? `@media only screen and ${devices.md} {
         ${generateGridWidth(md)}
         flex-basis: ${(Number(md) / 12) * 100}%;
         box-sizing: border-box;
@@ -56,7 +58,7 @@ export function generateMediaQueries({ xs, sm, md, lg }: BreakpointProps) {
     }
     ${
       lg
-        ? `@media only screen and (min-width: 1200px) {
+        ? `@media only screen and ${devices.lg} {
         ${generateGridWidth(lg)}
         flex-basis: ${(Number(lg) / 12) * 100}%;
         box-sizing: border-box;
