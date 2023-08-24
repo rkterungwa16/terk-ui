@@ -1,6 +1,4 @@
-export { default as Row } from "./Grid/Row";
-export { default as Col } from "./Grid/Col";
-export { default as Grid } from "./Grid/Grid";
+export * from "./Grid";
 export { default as ListGroup } from "./List/ListGroup";
 export { default as ListItem } from "./List/ListItem";
 export { default as Footer } from "./Footer/Footer";
