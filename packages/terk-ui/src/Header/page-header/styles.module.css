@@ -1,0 +1,26 @@
+.Page__header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 4.3rem;
+  width: 100%;
+}
+
+.Page__nav--active {
+  color: #60BB46;
+}
+
+.Page__nav--inactive {
+  color: #797F8B;
+}
+
+.Page__nav {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13.8164px;
+}
+
+.Page__nav:hover {
+  color: #60BB46;
+}
+

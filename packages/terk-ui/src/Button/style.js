@@ -1,10 +1,9 @@
-import React from "react";
 import styled from "styled-components";
 import StyleProps from "./styleProps";
 
 export const StyledButton = styled.button.attrs((props) => ({
   className: props.className,
-  disabled: props.disabled,
+  disabled: props.disabled
 }))`
   ${(props) => {
     return `
@@ -23,7 +22,7 @@ export const StyledButton = styled.button.attrs((props) => ({
 `;
 
 export const StyledButtonGroup = styled.div.attrs((props) => ({
-  role: "group",
+  role: "group"
 }))`
   ${(props) => {
     return `
@@ -48,7 +47,7 @@ export const StyledEndIcon = styled.span`
 export const StyledIconButton = styled.button.attrs((props) => ({
   className: props.className,
   disabled: props.disabled,
-  type: "button",
+  type: "button"
 }))`
   ${(props) => {
     return `
@@ -67,3 +66,4 @@ export const StyledIconButton = styled.button.attrs((props) => ({
 export const StyledIconButtonLabel = styled.span`
   ${StyleProps.iconButtonLabel.root}
 `;
+
