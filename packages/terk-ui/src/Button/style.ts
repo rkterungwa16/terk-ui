@@ -8,7 +8,7 @@ export const StyledButton = styled.button.attrs((props) => ({
   ${(props) => {
     return `
       ${StyleProps.button.root}
-      ${StyleProps.button.fullWidth[props.fullWidth]}
+      ${StyleProps.button.fullWidth[props?.fullWidth]}
       ${StyleProps.button.status(
         props.disabled,
         props.theme.button[props.variant],
