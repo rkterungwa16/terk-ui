@@ -1,44 +1,41 @@
 // import PropTypes from "prop-types";
-import { StyledButton, StyledButtonLabel, StyledEndIcon, StyledStartIcon } from "./style";
+import {
+  ButtonType,
+  ButtonColor,
+  ButtonSize,
+  ButtonVariant,
+  ButtonClasses,
+  ButtonShape
+} from "./types";
 
 // import {  ButtonDefaultProps } from "./BaseButtonProps";
-import { FC, ReactNode } from "react";
+import { ReactNode, forwardRef } from "react";
+import { StyledStandardButton } from "./styles/standard/styled.button";
 
-export type ButtonProps = {
+export interface ButtonProps {
+  buttonType?: ButtonType;
+  buttonColor?: ButtonColor;
+  buttonSize?: ButtonSize;
+  buttonShape?: ButtonShape;
+  buttonVariant?: ButtonVariant;
+  buttonTheme?: "light" | "dark";
+  // Custom class property is to be defined in a context at the app route
+  // All buttons in the application use this value.
+  customClasses?: ButtonClasses;
+  href?: string;
+  disabled?: boolean;
+  children?: ReactNode;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
-  children?: ReactNode;
   fullWidth?: boolean;
-  disabled?: boolean;
-  // themeType: "light" | "dark";
-  variant?: "contained" | "outlined" | "text";
-  shape?: "standard" | "square" | "pill";
-  size?: "small" | "medium" | "large";
-  color?:
-    | "primary"
-    | "secondary"
-    | "danger"
-    | "success"
-    | "warning"
-    | "danger"
-    | "info"
-    | "light"
-    | "dark";
-};
-const Button: FC<ButtonProps> = (props) => {
-  const startIcon = props.startIcon && <StyledStartIcon>{props.startIcon}</StyledStartIcon>;
-
-  const endIcon = props.endIcon && <StyledEndIcon>{props.endIcon}</StyledEndIcon>;
+}
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   return (
-    <StyledButton {...props}>
-      <StyledButtonLabel>
-        {startIcon}
-        {props.children}
-        {endIcon}
-      </StyledButtonLabel>
-    </StyledButton>
+    <StyledStandardButton {...props} ref={ref}>
+      {props.children}
+    </StyledStandardButton>
   );
-};
+});
 
 // Button.propTypes = {
 //   startIcon: PropTypes.node,
