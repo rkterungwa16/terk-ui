@@ -29,7 +29,7 @@ export interface ButtonProps {
   endIcon?: ReactNode;
   fullWidth?: boolean;
 }
-const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   return (
     <StyledStandardButton {...props} ref={ref}>
       {props.children}

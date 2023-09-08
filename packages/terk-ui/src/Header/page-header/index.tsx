@@ -1,16 +1,9 @@
-import { FC, MouseEventHandler, ReactElement, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { FC } from "react";
+
 import cx from "classnames";
 
 import { Header, Nav, NavList, NavListItem } from "..";
 
-import { HeaderNavs, ClientRoutes } from "@routes/client";
-import { CustomLink } from "@components/Link";
-import { Button } from "@components/Button";
-import { ButtonColor, ButtonVariant } from "@components/Button/constants";
-import { IconButton } from "@components/Button/icon";
 import {
   PageHeaderButtonProps,
   PageHeaderLinkProps,
@@ -39,22 +32,36 @@ export const PageHeader: FC<PageHeaderProp> = ({ components }) => (
       if (_component.type === HeaderComponentTypes.ICON) {
         return (
           <Nav className={_component.nav?.className} {..._component.nav}>
-            <IconButton onClick={_component.handleClick}>
+            {_component.Component && <_component.Component onClick={_component.handleClick} />}
+            {/* <IconButton onClick={_component.handleClick}>
               <Image {..._component.img} />
-            </IconButton>
+            </IconButton> */}
           </Nav>
         );
       }
       if (_component.type === HeaderComponentTypes.LINK) {
         <Nav className={_component.nav?.className} {..._component.nav}>
-          <CustomLink component={_component.linkComponent} href={_component.href}>
+          {_component.Component && <_component.Component href={_component.href} />}
+          {/* <CustomLink component={_component.linkComponent} href={_component.href}>
             <Image {..._component.img} />
-          </CustomLink>
+          </CustomLink> */}
         </Nav>;
       }
       if (_component.type === HeaderComponentTypes.BUTTON) {
         <Nav className={_component.nav?.className} {..._component.nav}>
-          <Button
+          {_component.Component && (
+            <_component.Component
+              {...{
+                ...(_component.href && { href: _component.href }),
+                ...(_component.handleClick && { onClick: _component.handleClick }),
+                ...(_component.variant && { variant: _component.variant }),
+                ...(_component.color && { href: _component.color })
+              }}
+            >
+              {_component.text}
+            </_component.Component>
+          )}
+          {/* <Button
             {...{
               ...(_component.href && { href: _component.href }),
               ...(_component.handleClick && { onClick: _component.handleClick }),
@@ -63,7 +70,7 @@ export const PageHeader: FC<PageHeaderProp> = ({ components }) => (
             }}
           >
             {_component.text}
-          </Button>
+          </Button> */}
         </Nav>;
       }
 
@@ -72,7 +79,19 @@ export const PageHeader: FC<PageHeaderProp> = ({ components }) => (
           <NavList className={_component.list?.className}>
             {_component.items?.map((_item, index) => (
               <NavListItem className={_item.classNames?.item} key={`${_item.route}-${index}`}>
-                <CustomLink
+                {_component.Component && (
+                  <_component.Component
+                    className={cx({
+                      ...(_item.classNames?.active && { [_item.classNames?.active]: _item.active }),
+                      ...(_item.classNames?.inActive && {
+                        [_item.classNames?.inActive]: !_item.active
+                      })
+                    })}
+                    component={_item.linkComponent}
+                    href={_item.route}
+                  ></_component.Component>
+                )}
+                {/* <CustomLink
                   className={cx({
                     ...(_item.classNames?.active && { [_item.classNames?.active]: _item.active }),
                     ...(_item.classNames?.inActive && {
@@ -83,7 +102,7 @@ export const PageHeader: FC<PageHeaderProp> = ({ components }) => (
                   href={_item.route}
                 >
                   {_item.name}
-                </CustomLink>
+                </CustomLink> */}
               </NavListItem>
             ))}
           </NavList>

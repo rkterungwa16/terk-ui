@@ -1,6 +1,5 @@
-import { FC, forwardRef, HTMLAttributes, ReactNode } from "react";
-import cx from "classnames";
-import styles from "./styles.module.css";
+import { forwardRef, HTMLAttributes, ReactNode } from "react";
+import { StyledHeaderContainer } from "./styles";
 
 export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -8,9 +7,9 @@ export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(
   ({ children, className, ...others }, ref) => {
     return (
-      <div ref={ref} className={cx(styles.Container, className)} {...others}>
+      <StyledHeaderContainer ref={ref} className={className} {...others}>
         {children}
-      </div>
+      </StyledHeaderContainer>
     );
   }
 );

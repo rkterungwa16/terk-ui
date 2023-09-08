@@ -1,5 +1,8 @@
-import { buttonContainedColorStyles, buttonShapeStyles, buttonSizeStyles } from "..";
+
 import { ButtonClasses } from "../../types";
+import { buttonShapeStyles } from "./shape";
+import { buttonSizeStyles } from "./size";
+import { buttonContainedColorStyles } from "./variant";
 
 export const standardButtonStyle: ButtonClasses = {
   standard: {

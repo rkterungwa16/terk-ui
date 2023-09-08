@@ -2,15 +2,14 @@ import { forwardRef, HTMLAttributes, ReactNode } from "react";
 import cx from "classnames";
 
 import { HeaderPosition, defaultPositionClasses } from "./constants";
-
-import styles from "./styles.module.css";
+import { StyledHeader } from "./styles";
 
 export interface HeaderProps extends HTMLAttributes<HTMLHeadingElement> {
   position?: HeaderPosition;
   positionClasses?: { [position: string]: string };
   children?: ReactNode;
 }
-export const Header = forwardRef<HTMLDivElement, HeaderProps>(
+export const Header = forwardRef<HTMLHeadElement, HeaderProps>(
   (
     {
       position = HeaderPosition.FIXED,
@@ -26,13 +25,13 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
       : [];
 
     return (
-      <header
-        className={cx(className, styles.Header, [...positionClass])}
+      <StyledHeader
+        className={cx(className, [...positionClass])}
         {...others}
         ref={ref}
       >
         {children}
-      </header>
+      </StyledHeader>
     );
   }
 );

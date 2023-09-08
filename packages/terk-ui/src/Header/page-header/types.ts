@@ -1,4 +1,5 @@
 import { ElementType, MouseEventHandler } from "react";
+import { ButtonVariant, ButtonColor } from "../../Button/types";
 
 export type PageHeaderNavProps = {
   className?: string;
@@ -22,7 +23,7 @@ export enum HeaderComponentTypes {
 }
 
 export type PageHeaderImgComponent = {
-  component?: ElementType;
+  Component?: ElementType;
   img?: PageHeaderImgProps;
   nav?: PageHeaderNavProps;
   button?: PageHeaderButtonProps;
@@ -31,7 +32,7 @@ export type PageHeaderImgComponent = {
 //=====================================
 export type PageHeaderIconProps = {
   type: HeaderComponentTypes.ICON;
-  component?: ElementType;
+  Component?: ElementType;
   img?: PageHeaderImgProps;
   nav?: PageHeaderNavProps;
   handleClick?: MouseEventHandler<HTMLElement>;
@@ -50,7 +51,7 @@ export type PageHeaderIconProps = {
 
 export type PageHeaderButtonProps = {
   type: HeaderComponentTypes.BUTTON;
-  component?: ElementType;
+  Component?: ElementType;
   variant?: ButtonVariant;
   color?: ButtonColor;
   text?: string;
@@ -62,7 +63,7 @@ export type PageHeaderButtonProps = {
 
 export type PageHeaderLinkProps = {
   type: HeaderComponentTypes.LINK;
-  component?: ElementType;
+  Component?: ElementType;
   linkComponent?: ElementType;
   href?: string;
   text?: string;
@@ -72,7 +73,7 @@ export type PageHeaderLinkProps = {
 
 export type PageHeaderNavItemsProps = {
   type: HeaderComponentTypes.ITEMS;
-  component?: ElementType;
+  Component?: ElementType;
   items?: {
     name: string;
     route: string;

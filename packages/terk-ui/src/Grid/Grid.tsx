@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { GridProps, StyledGrid } from "./styles";
 
-const Grid: FC<GridProps> = (props) => {
+export const Grid: FC<GridProps> = (props) => {
   return <StyledGrid {...props}>{props.children}</StyledGrid>;
 };
 
