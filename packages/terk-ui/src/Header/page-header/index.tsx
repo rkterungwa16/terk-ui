@@ -2,7 +2,8 @@ import { FC } from "react";
 
 import cx from "classnames";
 
-import { Header, Nav, NavList, NavListItem } from "..";
+import { Nav, NavList, NavListItem } from "../nav";
+import { Header } from "../header";
 
 import {
   PageHeaderButtonProps,
