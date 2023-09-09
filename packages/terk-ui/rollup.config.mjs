@@ -1,9 +1,10 @@
 import babel from "@rollup/plugin-babel";
-// import external from "rollup-plugin-peer-deps-external";
+import external from "rollup-plugin-peer-deps-external";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import del from "rollup-plugin-delete";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
+import replace from '@rollup/plugin-replace';
 import pkg from "./package.json" assert { type: "json" };
 
 export default {
@@ -30,11 +31,17 @@ export default {
     typescript({
       compilerOptions: { lib: ["es5", "es6", "dom"], target: "es5" },
       outDir: "lib/",
-      outputToFilesystem: true
+      outputToFilesystem: true,
+      declaration: true
     }),
     nodeResolve(),
     commonjs(),
-    del({ targets: ["lib/*"] })
+    external(),
+    del({ targets: ["lib/*"] }),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+      preventAssignment: true
+    })
   ],
   external: Object.keys(pkg.peerDependencies || {})
 };

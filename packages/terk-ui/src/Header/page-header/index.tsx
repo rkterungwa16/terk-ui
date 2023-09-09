@@ -41,28 +41,31 @@ export const PageHeader: FC<PageHeaderProp> = ({ components }) => (
         );
       }
       if (_component.type === HeaderComponentTypes.LINK) {
-        <Nav className={_component.nav?.className} {..._component.nav}>
-          {_component.Component && <_component.Component href={_component.href} />}
-          {/* <CustomLink component={_component.linkComponent} href={_component.href}>
+        return (
+          <Nav className={_component.nav?.className} {..._component.nav}>
+            {_component.Component && <_component.Component href={_component.href} />}
+            {/* <CustomLink component={_component.linkComponent} href={_component.href}>
             <Image {..._component.img} />
           </CustomLink> */}
-        </Nav>;
+          </Nav>
+        );
       }
       if (_component.type === HeaderComponentTypes.BUTTON) {
-        <Nav className={_component.nav?.className} {..._component.nav}>
-          {_component.Component && (
-            <_component.Component
-              {...{
-                ...(_component.href && { href: _component.href }),
-                ...(_component.handleClick && { onClick: _component.handleClick }),
-                ...(_component.variant && { variant: _component.variant }),
-                ...(_component.color && { href: _component.color })
-              }}
-            >
-              {_component.text}
-            </_component.Component>
-          )}
-          {/* <Button
+        return (
+          <Nav className={_component.nav?.className} {..._component.nav}>
+            {_component.Component && (
+              <_component.Component
+                {...{
+                  ...(_component.href && { href: _component.href }),
+                  ...(_component.handleClick && { onClick: _component.handleClick }),
+                  ...(_component.variant && { variant: _component.variant }),
+                  ...(_component.color && { href: _component.color })
+                }}
+              >
+                {_component.text}
+              </_component.Component>
+            )}
+            {/* <Button
             {...{
               ...(_component.href && { href: _component.href }),
               ...(_component.handleClick && { onClick: _component.handleClick }),
@@ -72,27 +75,42 @@ export const PageHeader: FC<PageHeaderProp> = ({ components }) => (
           >
             {_component.text}
           </Button> */}
-        </Nav>;
+          </Nav>
+        );
       }
 
+      {
+        console.log("before_component_items", _component.type);
+      }
       if (_component.type === HeaderComponentTypes.ITEMS) {
-        <Nav className={_component.nav?.className} {..._component.nav}>
-          <NavList className={_component.list?.className}>
-            {_component.items?.map((_item, index) => (
-              <NavListItem className={_item.classNames?.item} key={`${_item.route}-${index}`}>
-                {_component.Component && (
-                  <_component.Component
-                    className={cx({
-                      ...(_item.classNames?.active && { [_item.classNames?.active]: _item.active }),
-                      ...(_item.classNames?.inActive && {
-                        [_item.classNames?.inActive]: !_item.active
-                      })
-                    })}
-                    component={_item.linkComponent}
-                    href={_item.route}
-                  ></_component.Component>
-                )}
-                {/* <CustomLink
+        {
+          console.log("after_component_items", _component.type, _component.items);
+        }
+        return (
+          <Nav {...(_component?.nav && _component.nav)}>
+            <NavList className={_component?.list?.className || ""}>
+              {_component.items?.map((_item, index) => (
+                <NavListItem
+                  className={_item?.classNames?.item || ""}
+                  key={`${_item.route}-${index}`}
+                >
+                  {_component.Component && (
+                    <_component.Component
+                      className={cx({
+                        ...(_item.classNames?.active && {
+                          [_item.classNames?.active]: _item.active
+                        }),
+                        ...(_item.classNames?.inActive && {
+                          [_item.classNames?.inActive]: !_item.active
+                        })
+                      })}
+                      component={_item.linkComponent}
+                      href={_item.route}
+                    >
+                      {_item.name}
+                    </_component.Component>
+                  )}
+                  {/* <CustomLink
                   className={cx({
                     ...(_item.classNames?.active && { [_item.classNames?.active]: _item.active }),
                     ...(_item.classNames?.inActive && {
@@ -104,10 +122,11 @@ export const PageHeader: FC<PageHeaderProp> = ({ components }) => (
                 >
                   {_item.name}
                 </CustomLink> */}
-              </NavListItem>
-            ))}
-          </NavList>
-        </Nav>;
+                </NavListItem>
+              ))}
+            </NavList>
+          </Nav>
+        );
       }
     })}
   </Header>
