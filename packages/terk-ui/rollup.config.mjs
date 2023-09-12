@@ -24,20 +24,21 @@ export default {
     { file: pkg.module, format: "esm", name: "terk-ui" }
   ],
   plugins: [
+    del({ targets: ["lib/*"] }),
     babel({
       exclude: "node_modules/**",
-      babelHelpers: "bundled"
+      babelHelpers: "bundled",
     }),
     typescript({
       compilerOptions: { lib: ["es5", "es6", "dom"], target: "es5" },
       outDir: "lib/",
       outputToFilesystem: true,
-      declaration: true
     }),
-    nodeResolve(),
+    nodeResolve({
+      browser: true
+    }),
     commonjs(),
     external(),
-    del({ targets: ["lib/*"] }),
     replace({
       'process.env.NODE_ENV': JSON.stringify('production'),
       preventAssignment: true

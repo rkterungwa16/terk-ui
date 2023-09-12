@@ -6,6 +6,7 @@ export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
 }
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(
   ({ children, className, ...others }, ref) => {
+    console.log('header container__')
     return (
       <StyledHeaderContainer ref={ref} className={className} {...others}>
         {children}

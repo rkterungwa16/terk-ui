@@ -5,7 +5,7 @@ export interface NavProps extends HtmlHTMLAttributes<HTMLElement> {
   children: ReactNode;
 }
 export const Nav = forwardRef<HTMLElement, NavProps>(({ children, ...others }, ref) => {
-  console.log('nav___', children)
+  console.log('nav___Babel__rc', children)
   return (
     <StyledNav ref={ref} {...others}>
       {children}
