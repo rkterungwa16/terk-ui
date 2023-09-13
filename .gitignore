@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/packages/terk-ui/node_modules
+/packages/terkui-core/node_modules
 /.pnp
 .pnp.js
 

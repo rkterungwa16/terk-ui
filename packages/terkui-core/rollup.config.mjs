@@ -4,6 +4,7 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import del from "rollup-plugin-delete";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
+// import ts from "rollup-plugin-ts";
 import replace from '@rollup/plugin-replace';
 import pkg from "./package.json" assert { type: "json" };
 
@@ -12,8 +13,8 @@ export default {
   output: [
     {
       file: pkg.main,
-      format: "umd",
-      name: "terk-ui",
+      format: "cjs",
+      name: "terkui-core",
       globals: {
         "react/jsx-runtime": "jsxRuntime",
         "prop-types": "PropTypes",
@@ -21,7 +22,7 @@ export default {
         react: "react"
       }
     },
-    { file: pkg.module, format: "esm", name: "terk-ui" }
+    { file: pkg.module, format: "esm", name: "terkui-core" }
   ],
   plugins: [
     del({ targets: ["lib/*"] }),
@@ -31,8 +32,8 @@ export default {
     }),
     typescript({
       compilerOptions: { lib: ["es5", "es6", "dom"], target: "es5" },
-      outDir: "lib/",
-      outputToFilesystem: true,
+      // outDir: "lib/",
+      module: "es2015",
     }),
     nodeResolve({
       browser: true

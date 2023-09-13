@@ -88,7 +88,6 @@ export type PageHeaderNavItemsProps = {
   list?: {
     className?: string;
   };
-  currentRoute?: string;
   nav?: PageHeaderNavProps;
 };
 

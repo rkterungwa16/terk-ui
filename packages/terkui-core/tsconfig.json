@@ -22,7 +22,10 @@
     "noFallthroughCasesInSwitch": true,
 
     "composite": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    // "declarationDir": "./lib/types",
+    "outDir": "lib/types",
   },
-  "include": ["src"]
+  "include": ["src", "index.ts"]
 }
