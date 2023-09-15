@@ -1,4 +1,3 @@
-
 import { ButtonClasses } from "../../types";
 import { buttonShapeStyles } from "./shape";
 import { buttonSizeStyles } from "./size";
@@ -35,4 +34,3 @@ export const standardButtonStyle: ButtonClasses = {
     }
   }
 };
-

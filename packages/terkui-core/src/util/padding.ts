@@ -1,23 +1,22 @@
 // margin-bottom: 0;
-export const padding: {
+export const boxAreas: {
   [x: string]: string;
 } = {
-  p: "padding: {spacing};",
-  pb: "padding-bottom: {spacing};",
-  pt: "padding-top {spacing};",
-  pl: "padding-left {spacing};",
-  pr: "padding-right {spacing};",
-  px: `
-    padding-right: {spacing};
-    padding-left: {spacing};
-  `,
-  py: `
-    padding-top: {spacing};
-    padding-bottom: {spacing};
-  `
+  p: "padding",
+  m: "margin"
 };
-// mb-0
-// mx-1
+
+export const boxSides: {
+  [x: string]: string;
+} = {
+  t: "top",
+  b: "bottom",
+  l: "left",
+  r: "right",
+  x: "left right",
+  y: "top bottom"
+};
+
 const spacing: {
   [x: number]: number;
 } = {
@@ -34,7 +33,15 @@ const spacing: {
   10: 4.5
 };
 
-export const generatePaddingStyle = (props: string) => {
-  const [paddingType, spacingValue] = props.split("-");
-  return padding[paddingType].replace("{spacing}", `${spacing[Number(spacingValue)]}`);
+export const generateBoxAreaStyle = (props: string) => {
+  const [boxAreaSide, spacingValue] = props.split("-");
+  const [boxArea, boxSide] = boxAreaSide.split("");
+  if (boxSides[boxSide].split(" ").length === 2) {
+    const [first, second] = boxSides[boxSide].split(" ");
+    return `
+    ${boxAreas[boxArea]}-${first}: ${spacing[Number(spacingValue)]}rem;
+    ${boxAreas[boxArea]}-${second}: ${spacing[Number(spacingValue)]}rem;
+    `;
+  }
+  return `${boxAreas[boxArea]}-${boxSides[boxSide]}: ${spacing[Number(spacingValue)]}rem`;
 };

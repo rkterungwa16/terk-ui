@@ -44,4 +44,3 @@ Grid.propTypes = {
 };
 
 export default Grid;
-

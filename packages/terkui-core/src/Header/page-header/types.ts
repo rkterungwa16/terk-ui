@@ -78,7 +78,6 @@ export type PageHeaderNavItemsProps = {
     name: string;
     route: string;
     active: boolean;
-    linkComponent?: ElementType;
     classNames?: {
       item?: string;
       active?: string;

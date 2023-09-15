@@ -122,7 +122,6 @@ export const PageHeader: FC<PageHeaderProp> = ({
                             [_item.classNames?.inActive]: _item.route !== currentRoute
                           })
                         })}
-                        // component={_item.linkComponent}
                         href={_item.route}
                       >
                         {_item.name}
