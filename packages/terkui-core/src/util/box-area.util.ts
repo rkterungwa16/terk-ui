@@ -36,12 +36,15 @@ const spacing: {
 export const generateBoxAreaStyle = (props: string) => {
   const [boxAreaSide, spacingValue] = props.split("-");
   const [boxArea, boxSide] = boxAreaSide.split("");
-  if (boxSides[boxSide].split(" ").length === 2) {
+  if (!boxSide) {
+    return `${boxAreas[boxArea]}: ${spacing[Number(spacingValue)]}rem;`;
+  }
+  if (boxSides[boxSide]?.split(" ").length === 2) {
     const [first, second] = boxSides[boxSide].split(" ");
     return `
     ${boxAreas[boxArea]}-${first}: ${spacing[Number(spacingValue)]}rem;
     ${boxAreas[boxArea]}-${second}: ${spacing[Number(spacingValue)]}rem;
     `;
   }
-  return `${boxAreas[boxArea]}-${boxSides[boxSide]}: ${spacing[Number(spacingValue)]}rem`;
+  return `${boxAreas[boxArea]}-${boxSides[boxSide]}: ${spacing[Number(spacingValue)]}rem;`;
 };

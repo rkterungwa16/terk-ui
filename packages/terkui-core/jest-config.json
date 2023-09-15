@@ -1,0 +1,11 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts", "tsx"],
+  "resetMocks": true,
+  "rootDir": "./src/",
+  "testRegex": "/src/.*\\.test\\.tsx?$",
+  "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/.rollup.cache/", "<rootDir>/lib/"],
+  "coverageDirectory": "./coverage",
+  "testEnvironment": "jsdom",
+  "roots": ["<rootDir>/"]
+}
+

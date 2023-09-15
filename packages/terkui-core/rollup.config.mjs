@@ -20,7 +20,7 @@ export default {
         "prop-types": "PropTypes",
         "styled-components": "styled",
         react: "react"
-      }
+      },
     },
     { file: pkg.module, format: "esm", name: "terkui-core" }
   ],
