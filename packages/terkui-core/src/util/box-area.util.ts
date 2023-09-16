@@ -1,3 +1,5 @@
+import { BoxAreaProps } from "../Header/types";
+
 // margin-bottom: 0;
 export const boxAreas: {
   [x: string]: string;
@@ -47,4 +49,15 @@ export const generateBoxAreaStyle = (props: string) => {
     `;
   }
   return `${boxAreas[boxArea]}-${boxSides[boxSide]}: ${spacing[Number(spacingValue)]}rem;`;
+};
+
+export const generateComponentBoxAreaStyle = (props: BoxAreaProps) => {
+  return Object.values(props)
+    .filter((_prop) => _prop)
+    .reduce((prev, curr) => {
+      return `
+      ${prev}
+      ${generateBoxAreaStyle(curr)}
+    `;
+    }, "");
 };

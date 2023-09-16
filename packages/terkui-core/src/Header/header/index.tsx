@@ -1,7 +1,8 @@
 import { CSSProperties, forwardRef, ReactNode } from "react";
 import { StyledHeader } from "./styles";
+import { BoxAreaProps } from "../types";
 
-export interface HeaderProps {
+export interface HeaderProps extends BoxAreaProps {
   position?: CSSProperties["position"];
   display?: "flex" | "none";
   justifyContent?: CSSProperties["justifyContent"];

@@ -1,7 +1,8 @@
 import { CSSProperties, forwardRef, ReactNode } from "react";
 import { StyledHeaderContainer } from "./styles";
+import { BoxAreaProps } from "../types";
 
-export interface ContainerProps {
+export interface ContainerProps extends BoxAreaProps {
   children?: ReactNode;
   position?: CSSProperties["position"];
   display?: "flex" | "none";
@@ -9,6 +10,7 @@ export interface ContainerProps {
   alignItems?: CSSProperties["alignItems"];
   width?: CSSProperties["width"];
   className?: string;
+
 }
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(
   ({ children, ...others }, ref) => {

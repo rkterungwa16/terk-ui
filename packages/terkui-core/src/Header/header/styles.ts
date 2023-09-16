@@ -1,13 +1,31 @@
 import styled from "styled-components";
 import { HeaderProps } from ".";
+import { generateComponentBoxAreaStyle } from "../../util/box-area.util";
 
 export const StyledHeader = styled.header`
   ${(props: HeaderProps) => {
+    const { width, height, p, pb, pt, pl, pr, px, py, m, ml, mr, mt, mb, mx, my } = props;
     const style = `
-      height: ${props.height};
-      width: ${props.width};
+      height: ${height};
+      width: ${width};
       top: 0;
       z-index: 999;
+      ${generateComponentBoxAreaStyle({
+        p,
+        pb,
+        pt,
+        pl,
+        pr,
+        px,
+        py,
+        m,
+        ml,
+        mr,
+        mt,
+        mb,
+        mx,
+        my
+      })}
     `;
     if (props.display === "flex") {
       return `
