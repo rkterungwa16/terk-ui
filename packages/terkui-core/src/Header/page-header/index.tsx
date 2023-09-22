@@ -48,9 +48,6 @@ export const PageHeader: FC<PageHeaderProp> = ({
               key={`${_component.type}-${index}`}
             >
               {_component.Component && <_component.Component onClick={_component.handleClick} />}
-              {/* <IconButton onClick={_component.handleClick}>
-              <Image {..._component.img} />
-            </IconButton> */}
             </Nav>
           );
         }
@@ -62,9 +59,6 @@ export const PageHeader: FC<PageHeaderProp> = ({
               key={`${_component.type}-${index}`}
             >
               {_component.Component && <_component.Component href={_component.href} />}
-              {/* <CustomLink component={_component.linkComponent} href={_component.href}>
-            <Image {..._component.img} />
-          </CustomLink> */}
             </Nav>
           );
         }
@@ -87,23 +81,11 @@ export const PageHeader: FC<PageHeaderProp> = ({
                   {_component.text}
                 </_component.Component>
               )}
-              {/* <Button
-            {...{
-              ...(_component.href && { href: _component.href }),
-              ...(_component.handleClick && { onClick: _component.handleClick }),
-              ...(_component.variant && { variant: _component.variant }),
-              ...(_component.color && { href: _component.color })
-            }}
-          >
-            {_component.text}
-          </Button> */}
             </Nav>
           );
         }
 
         if (_component.type === HeaderComponentTypes.ITEMS) {
-          console.log("_component items", _component);
-          console.log("_current route", currentRoute);
           return (
             <Nav {...(_component?.nav && _component.nav)} key={`${_component.type}-${index}`}>
               <NavList className={_component?.list?.className || ""}>
@@ -127,18 +109,6 @@ export const PageHeader: FC<PageHeaderProp> = ({
                         {_item.name}
                       </_component.Component>
                     )}
-                    {/* <CustomLink
-                  className={cx({
-                    ...(_item.classNames?.active && { [_item.classNames?.active]: _item.active }),
-                    ...(_item.classNames?.inActive && {
-                      [_item.classNames?.inActive]: !_item.active
-                    })
-                  })}
-                  component={_item.linkComponent}
-                  href={_item.route}
-                >
-                  {_item.name}
-                </CustomLink> */}
                   </NavListItem>
                 ))}
               </NavList>
