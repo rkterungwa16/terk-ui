@@ -1,4 +1,4 @@
-import { BoxAreaProps } from "../Header/types";
+import { BoxAreaProps } from "../../Header/types";
 
 // margin-bottom: 0;
 export const boxAreas: {

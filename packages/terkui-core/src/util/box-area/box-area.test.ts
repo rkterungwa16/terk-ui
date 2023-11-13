@@ -1,4 +1,4 @@
-import { generateBoxAreaStyle, generateComponentBoxAreaStyle } from "./box-area.util";
+import { generateBoxAreaStyle, generateComponentBoxAreaStyle } from "./box-area";
 
 describe("Box area util", () => {
   it("should render padding styles", () => {

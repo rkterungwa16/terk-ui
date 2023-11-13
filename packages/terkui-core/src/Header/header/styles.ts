@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { HeaderProps } from ".";
-import { generateComponentBoxAreaStyle } from "../../util/box-area.util";
+import { generateComponentBoxAreaStyle } from "../../util/box-area/box-area";
 
 export const StyledHeader = styled.header`
   ${(props: HeaderProps) => {
