@@ -1,5 +1,5 @@
 import { ReactNode, CSSProperties } from "react";
-import { BoxAreaProps, StyledBoxAreaProps } from "../util/box-area";
+import { BoxAreaProps, StyledBoxAreaProps } from "../utils/box-area";
 
 /**
  * sm - Set container 100% wide until small breakpoint.

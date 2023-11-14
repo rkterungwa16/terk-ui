@@ -1,4 +1,4 @@
-import { devices } from "../../util/breakpoints/breakpoints";
+import { devices } from "../../utils/breakpoints/breakpoints";
 
 export const display = (size: string, type: string) => {
   if (type === "none") {

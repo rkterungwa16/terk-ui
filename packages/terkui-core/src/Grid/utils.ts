@@ -1,4 +1,4 @@
-import { devices } from "../util/breakpoints/breakpoints";
+import { devices } from "../utils/breakpoints/breakpoints";
 
 /**
  *
