@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ContainerProps } from "./types";
-import { generateComponentBoxAreaStyle } from "../util/box-area/box-area";
+import { generateComponentBoxAreaStyle } from "../util/box-area";
+import { StyledContainerProps } from "./types";
 import { devices } from "../util/breakpoints/breakpoints";
 
 export const breakpointWidth = {
@@ -56,62 +56,42 @@ export const breakpointWidth = {
   `,
   fluid: `
     width: 100%;
-  `,
+  `
 };
 
 export const StyledHeaderContainer = styled.div`
-  ${(props: ContainerProps) => {
+  ${(props: StyledContainerProps) => {
     const {
-      width,
-      height,
-      p,
-      pb,
-      pt,
-      pl,
-      pr,
-      px,
-      py,
-      m,
-      ml,
-      mr,
-      mt,
-      mb,
-      mx,
-      my,
-      breakpoint,
+      $width,
+      $height,
+      $breakpoint,
+      $zIndex,
+      $top,
+      $bottom,
+      $left,
+      $right,
+      $display,
+      $justifyContent,
+      $alignItems,
+      ...others
     } = props;
     const style = `
-      width: ${width};
-      height: ${height};
-      ${breakpointWidth[breakpoint ? breakpoint : "fluid"]}
-      top: 0;
-      z-index: 999;
+      ${$breakpoint ? breakpointWidth[$breakpoint] : ""}
+      ${$width ? `width: ${$width};` : ""}
+      ${$height ? `height: ${$height};` : ""}
+      ${$zIndex ? `z-index: ${$zIndex};` : ""}
+      ${$top ? `top: ${$top};` : ""}
+      ${$bottom ? `bottom: ${$bottom};` : ""}
+      ${$left ? `right: ${$left};` : ""}
+      ${$right ? `right: ${$right};` : ""}
+
+      ${$display ? `display: ${$display};` : ""}
+      ${$justifyContent ? `justify-content: ${$justifyContent};` : ""}
+      ${$alignItems ? `align-items: ${$alignItems};` : ""}
       ${generateComponentBoxAreaStyle({
-        p,
-        pb,
-        pt,
-        pl,
-        pr,
-        px,
-        py,
-        m,
-        ml,
-        mr,
-        mt,
-        mb,
-        mx,
-        my,
+        ...others
       })}
     `;
-
-    if (props.display === "flex") {
-      return `
-        display: ${props.display};
-        justify-content: ${props.justifyContent};
-        align-items: ${props.alignItems};
-        ${style}
-      `;
-    }
     return style;
   }}
 `;
