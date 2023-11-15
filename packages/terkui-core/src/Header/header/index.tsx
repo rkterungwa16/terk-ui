@@ -1,24 +1,20 @@
-import { CSSProperties, forwardRef, ReactNode } from "react";
-import { BoxAreaProps } from "../types";
-import { ContainerProps } from "../../Container/types";
-import { Container } from "../../Container/Container";
+import { forwardRef } from "react";
 
-export interface HeaderProps extends BoxAreaProps {
-  position?: CSSProperties["position"];
-  display?: "flex" | "none";
-  justifyContent?: CSSProperties["justifyContent"];
-  alignItems?: CSSProperties["alignItems"];
-  width?: CSSProperties["width"];
-  height?: CSSProperties["height"];
-  className?: string;
-  children?: ReactNode;
-}
-export const Header = forwardRef<HTMLHeadingElement, ContainerProps>(({ children, ...others }, ref) => {
-  return (
-    <Container element="header" {...others} ref={ref}>
-      {children}
-    </Container>
-  );
-});
+import { Container } from "../../Container/Container";
+import { HeaderProps } from "./types";
+import { StyledHeader } from "./styles";
+import { generateStyledComponentPropKeys } from "../../utils/generateStyledComponentPropKeys";
+
+export const Header = forwardRef<HTMLHeadingElement, HeaderProps>(
+  ({ children, ...others }, ref) => {
+    return (
+      <StyledHeader {...generateStyledComponentPropKeys(others)} ref={ref}>
+        <Container breakpoint="fluid" {...others}>
+          {children}
+        </Container>
+      </StyledHeader>
+    );
+  }
+);
 
 Header.displayName = "Header";

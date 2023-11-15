@@ -3,7 +3,7 @@ import { FC } from "react";
 import cx from "classnames";
 
 import { Nav, NavList, NavListItem } from "../nav";
-import { Header, HeaderProps } from "../header";
+import { Header } from "../header";
 
 import {
   PageHeaderButtonProps,
@@ -12,6 +12,7 @@ import {
   PageHeaderNavItemsProps,
   HeaderComponentTypes
 } from "./types";
+import { HeaderProps } from "../header/types";
 
 // for all screen sizes greater or equal to xs di
 // display = "none" screenSize = "xs" { flex: { gte: "x" }}
