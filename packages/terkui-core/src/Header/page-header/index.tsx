@@ -12,7 +12,6 @@ import {
   PageHeaderNavItemsProps,
   HeaderComponentTypes
 } from "./types";
-import { Container, ContainerProps } from "../container";
 
 // for all screen sizes greater or equal to xs di
 // display = "none" screenSize = "xs" { flex: { gte: "x" }}
@@ -22,7 +21,6 @@ import { Container, ContainerProps } from "../container";
 
 export type PageHeaderProp = {
   headerProps?: HeaderProps;
-  headerContainerProps?: ContainerProps;
   currentRoute?: string;
   components: (
     | PageHeaderButtonProps
@@ -31,91 +29,84 @@ export type PageHeaderProp = {
     | PageHeaderNavItemsProps
   )[];
 };
-export const PageHeader: FC<PageHeaderProp> = ({
-  components,
-  currentRoute,
-  headerContainerProps,
-  headerProps
-}) => (
-  <Container {...headerContainerProps}>
-    <Header {...headerProps}>
-      {components.map((_component, index) => {
-        if (_component.type === HeaderComponentTypes.ICON) {
-          return (
-            <Nav
-              className={_component.nav?.className}
-              {..._component.nav}
-              key={`${_component.type}-${index}`}
-            >
-              {_component.Component && <_component.Component onClick={_component.handleClick} />}
-            </Nav>
-          );
-        }
-        if (_component.type === HeaderComponentTypes.LINK) {
-          return (
-            <Nav
-              className={_component.nav?.className}
-              {..._component.nav}
-              key={`${_component.type}-${index}`}
-            >
-              {_component.Component && <_component.Component href={_component.href} />}
-            </Nav>
-          );
-        }
-        if (_component.type === HeaderComponentTypes.BUTTON) {
-          return (
-            <Nav
-              className={_component.nav?.className}
-              {..._component.nav}
-              key={`${_component.type}-${index}`}
-            >
-              {_component.Component && (
-                <_component.Component
-                  {...{
-                    ...(_component.href && { href: _component.href }),
-                    ...(_component.handleClick && { onClick: _component.handleClick }),
-                    ...(_component.variant && { variant: _component.variant }),
-                    ...(_component.color && { href: _component.color })
-                  }}
-                >
-                  {_component.text}
-                </_component.Component>
-              )}
-            </Nav>
-          );
-        }
+export const PageHeader: FC<PageHeaderProp> = ({ components, currentRoute, headerProps }) => (
+  <Header {...headerProps}>
+    {components.map((_component, index) => {
+      if (_component.type === HeaderComponentTypes.ICON) {
+        return (
+          <Nav
+            className={_component.nav?.className}
+            {..._component.nav}
+            key={`${_component.type}-${index}`}
+          >
+            {_component.Component && <_component.Component onClick={_component.handleClick} />}
+          </Nav>
+        );
+      }
+      if (_component.type === HeaderComponentTypes.LINK) {
+        return (
+          <Nav
+            className={_component.nav?.className}
+            {..._component.nav}
+            key={`${_component.type}-${index}`}
+          >
+            {_component.Component && <_component.Component href={_component.href} />}
+          </Nav>
+        );
+      }
+      if (_component.type === HeaderComponentTypes.BUTTON) {
+        return (
+          <Nav
+            className={_component.nav?.className}
+            {..._component.nav}
+            key={`${_component.type}-${index}`}
+          >
+            {_component.Component && (
+              <_component.Component
+                {...{
+                  ...(_component.href && { href: _component.href }),
+                  ...(_component.handleClick && { onClick: _component.handleClick }),
+                  ...(_component.variant && { variant: _component.variant }),
+                  ...(_component.color && { href: _component.color })
+                }}
+              >
+                {_component.text}
+              </_component.Component>
+            )}
+          </Nav>
+        );
+      }
 
-        if (_component.type === HeaderComponentTypes.ITEMS) {
-          return (
-            <Nav {...(_component?.nav && _component.nav)} key={`${_component.type}-${index}`}>
-              <NavList className={_component?.list?.className || ""}>
-                {_component.items?.map((_item, index) => (
-                  <NavListItem
-                    className={_item?.classNames?.item || ""}
-                    key={`${_item.route}-${index}`}
-                  >
-                    {_component.Component && (
-                      <_component.Component
-                        className={cx({
-                          ...(_item.classNames?.active && {
-                            [_item.classNames?.active]: _item.route === currentRoute
-                          }),
-                          ...(_item.classNames?.inActive && {
-                            [_item.classNames?.inActive]: _item.route !== currentRoute
-                          })
-                        })}
-                        href={_item.route}
-                      >
-                        {_item.name}
-                      </_component.Component>
-                    )}
-                  </NavListItem>
-                ))}
-              </NavList>
-            </Nav>
-          );
-        }
-      })}
-    </Header>
-  </Container>
+      if (_component.type === HeaderComponentTypes.ITEMS) {
+        return (
+          <Nav {...(_component?.nav && _component.nav)} key={`${_component.type}-${index}`}>
+            <NavList className={_component?.list?.className || ""}>
+              {_component.items?.map((_item, index) => (
+                <NavListItem
+                  className={_item?.classNames?.item || ""}
+                  key={`${_item.route}-${index}`}
+                >
+                  {_component.Component && (
+                    <_component.Component
+                      className={cx({
+                        ...(_item.classNames?.active && {
+                          [_item.classNames?.active]: _item.route === currentRoute
+                        }),
+                        ...(_item.classNames?.inActive && {
+                          [_item.classNames?.inActive]: _item.route !== currentRoute
+                        })
+                      })}
+                      href={_item.route}
+                    >
+                      {_item.name}
+                    </_component.Component>
+                  )}
+                </NavListItem>
+              ))}
+            </NavList>
+          </Nav>
+        );
+      }
+    })}
+  </Header>
 );

@@ -1,14 +1,21 @@
 import { forwardRef } from "react";
-import { StyledHeaderContainer } from "./styles";
+import { StyledContainer, StyledHeaderContainer } from "./styles";
 import { ContainerProps } from "./types";
 import { generateStyledComponentPropKeys } from "../utils/generateStyledComponentPropKeys";
 
-export const Container = forwardRef<HTMLDivElement, ContainerProps>(
-  ({ children, ...others }, ref) => {
+export const Container = forwardRef<HTMLDivElement | HTMLHeadingElement, ContainerProps>(
+  ({ children, element, ...others }, ref) => {
+    if (element === 'header') {
+      return (
+        <StyledHeaderContainer ref={ref} {...generateStyledComponentPropKeys(others)}>
+          {children}
+        </StyledHeaderContainer>
+      );
+    }
     return (
-      <StyledHeaderContainer ref={ref} {...generateStyledComponentPropKeys(others)}>
+      <StyledContainer ref={ref} {...generateStyledComponentPropKeys(others)}>
         {children}
-      </StyledHeaderContainer>
+      </StyledContainer>
     );
   }
 );

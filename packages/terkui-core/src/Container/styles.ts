@@ -59,7 +59,44 @@ export const breakpointWidth = {
   `
 };
 
-export const StyledHeaderContainer = styled.div`
+export const StyledContainer = styled.div`
+  ${(props: StyledContainerProps) => {
+    const {
+      $width,
+      $height,
+      $breakpoint,
+      $zIndex,
+      $top,
+      $bottom,
+      $left,
+      $right,
+      $display,
+      $justifyContent,
+      $alignItems,
+      ...others
+    } = props;
+    const style = `
+      ${$breakpoint ? breakpointWidth[$breakpoint] : ""}
+      ${$width ? `width: ${$width};` : ""}
+      ${$height ? `height: ${$height};` : ""}
+      ${$zIndex ? `z-index: ${$zIndex};` : ""}
+      ${$top ? `top: ${$top};` : ""}
+      ${$bottom ? `bottom: ${$bottom};` : ""}
+      ${$left ? `right: ${$left};` : ""}
+      ${$right ? `right: ${$right};` : ""}
+
+      ${$display ? `display: ${$display};` : ""}
+      ${$justifyContent ? `justify-content: ${$justifyContent};` : ""}
+      ${$alignItems ? `align-items: ${$alignItems};` : ""}
+      ${generateComponentBoxAreaStyle({
+        ...others
+      })}
+    `;
+    return style;
+  }}
+`;
+
+export const StyledHeaderContainer = styled.header`
   ${(props: StyledContainerProps) => {
     const {
       $width,

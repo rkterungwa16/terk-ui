@@ -1,6 +1,7 @@
 import { CSSProperties, forwardRef, ReactNode } from "react";
-import { StyledHeader } from "./styles";
 import { BoxAreaProps } from "../types";
+import { ContainerProps } from "../../Container/types";
+import { Container } from "../../Container/Container";
 
 export interface HeaderProps extends BoxAreaProps {
   position?: CSSProperties["position"];
@@ -12,11 +13,11 @@ export interface HeaderProps extends BoxAreaProps {
   className?: string;
   children?: ReactNode;
 }
-export const Header = forwardRef<HTMLHeadElement, HeaderProps>(({ children, ...others }, ref) => {
+export const Header = forwardRef<HTMLHeadingElement, ContainerProps>(({ children, ...others }, ref) => {
   return (
-    <StyledHeader {...others} ref={ref}>
+    <Container element="header" {...others} ref={ref}>
       {children}
-    </StyledHeader>
+    </Container>
   );
 });
 
