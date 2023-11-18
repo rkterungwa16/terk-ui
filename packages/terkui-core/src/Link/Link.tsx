@@ -3,10 +3,7 @@ import classNames from "classnames";
 import { LinkProps } from "./types";
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-  (
-    { children, active, className, customLink, disabled, href, ...rest },
-    ref,
-  ) => {
+  ({ children, active, className, customLink, disabled, href, ...rest }, ref) => {
     if (customLink) {
       const customLinkProps = customLink.props;
       const Component = customLink.component;
@@ -35,5 +32,5 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         {children}
       </a>
     );
-  },
+  }
 );

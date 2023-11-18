@@ -8,9 +8,7 @@ export interface LinkAttrProps extends AllHTMLAttributes<HTMLElement> {
 }
 
 export type CustomLinkProps = Record<string, unknown>;
-export interface LinkProps
-  extends LinkAttrProps,
-    AllHTMLAttributes<HTMLElement> {
+export interface LinkProps extends LinkAttrProps, AllHTMLAttributes<HTMLElement> {
   customLink?: {
     component: ElementType;
     props: CustomLinkProps;

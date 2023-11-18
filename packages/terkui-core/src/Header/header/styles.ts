@@ -43,4 +43,3 @@ export const StyledHeader = styled.header`
     return style;
   }}
 `;
-

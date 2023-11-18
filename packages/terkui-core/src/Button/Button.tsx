@@ -31,8 +31,8 @@ export interface ButtonProps {
   $fullWidth?: boolean;
 }
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-  if (props.$buttonType === 'icon') return;
-  if (props.$buttonType === 'text') return;
+  if (props.$buttonType === "icon") return;
+  if (props.$buttonType === "text") return;
   return (
     <StyledStandardButton {...props} ref={ref}>
       {props.children}

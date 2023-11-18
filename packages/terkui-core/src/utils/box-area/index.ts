@@ -1,2 +1,2 @@
-export * from './box-area';
-export * from './types';
+export * from "./box-area";
+export * from "./types";
