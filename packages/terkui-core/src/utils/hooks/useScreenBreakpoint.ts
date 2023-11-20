@@ -28,7 +28,12 @@ const breakpoints: {
   }
 };
 
-export default function useScreenBreakpoint(breakpoint: Breakpoint) {
+/**
+ * check screen sizes that are valid within a specific screen breakpoint
+ * @param breakpoint
+ * @returns
+ */
+export function useScreenBreakpoint(breakpoint: Breakpoint) {
   const [screenIsWithinBreakpoint, confirmScreenSizeWithinBreakpoint] = useState(false);
 
   const handleConfirmScreenSizeWithinBreakpoint = useCallback(() => {
@@ -42,3 +47,5 @@ export default function useScreenBreakpoint(breakpoint: Breakpoint) {
   }, [handleConfirmScreenSizeWithinBreakpoint]);
   return screenIsWithinBreakpoint;
 }
+
+export default useScreenBreakpoint;
