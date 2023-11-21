@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import {
   Breakpoint,
   DESKTOPS,
@@ -28,16 +28,18 @@ const breakpoints: {
   }
 };
 
-/**
- * check screen sizes that are valid within a specific screen breakpoint
- * @param breakpoint
- * @returns
- */
 export function useScreenBreakpoint(breakpoint: Breakpoint) {
   const [screenIsWithinBreakpoint, confirmScreenSizeWithinBreakpoint] = useState(false);
 
+  const timeout = useRef<NodeJS.Timeout | null>(null);
+
   const handleConfirmScreenSizeWithinBreakpoint = useCallback(() => {
-    confirmScreenSizeWithinBreakpoint(breakpoints[breakpoint](window));
+    if (timeout?.current) {
+      clearTimeout(timeout.current);
+    }
+    timeout.current = setTimeout(() => {
+      confirmScreenSizeWithinBreakpoint(breakpoints[breakpoint](window));
+    }, 150);
   }, [breakpoint]);
   useEffect(() => {
     if (typeof window !== "undefined") {
